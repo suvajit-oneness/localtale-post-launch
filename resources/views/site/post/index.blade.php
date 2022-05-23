@@ -155,7 +155,7 @@
         },
         function(isConfirm){
           if (isConfirm) {
-            window.location.href = "blog/"+id+"/delete";
+            window.location.href = "site.localloop.post/"+id+"/delete";
             } else {
               swal("Cancelled", "Record is safe", "error");
             }
@@ -175,7 +175,7 @@
           $.ajax({
                 type:'POST',
                 dataType:'JSON',
-                url:"{{route('site.blog.updateStatus')}}",
+                url:"{{route('site.localloop.post.updateStatus')}}",
                 data:{ _token: CSRF_TOKEN, id:blog_id, check_status:check_status},
                 success:function(response)
                 {
