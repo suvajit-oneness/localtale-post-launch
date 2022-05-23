@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 
-@font-face {
+/* @font-face {
     font-family: 'GT Walsheim Pro Ultra';
     src: url('../fonts/GTWalsheimPro-UltraBold.woff2') format('woff2'),
         url('../fonts/GTWalsheimPro-UltraBold.woff') format('woff');
@@ -33,15 +34,16 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 /*===Style Start
 =================*/
 body {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 400;
     font-size: 16px;
     overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif
 }
 
 a:hover {
@@ -59,7 +61,7 @@ input:focus, input:hover, select:focus, select:hover {
 	box-shadow: none;
 }
 p {
-	font-family: 'GT Walsheim Pro';
+	/* font-family: 'GT Walsheim Pro'; */
     color: #2e2b2b;
     font-size: 15px;
     font-weight: 400;
@@ -122,13 +124,13 @@ p {
 
 header {
     display: block;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
    /* flex-wrap: wrap;*/
    padding: 20px 0;
    position: sticky;
    background: #fff;
    top: 0;
-   z-index: 9999;
+   z-index: 999;
 }
 
 .left-header {
@@ -190,7 +192,7 @@ header {
     padding: 4px 5px;
     top: 43px;
     box-shadow: 0 10px 10px 0 rgb(0 0 0 / 26%);
-    
+
 }
 .menu >li:hover ul {
     display: block;
@@ -300,7 +302,7 @@ header .button-list li a span {
     color:#fff;
     text-align: center;
     line-height: 1;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 900;
 }
 .banner-heading span {
@@ -327,7 +329,7 @@ header .button-list li a span {
     margin-top: 50px;
     padding: 20px;
     border-radius: 10px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 
 /*.search-list {
@@ -337,7 +339,7 @@ header .button-list li a span {
     flex-wrap: wrap;
 }
 .search-list li {
-  flex:1 0 0; 
+  flex:1 0 0;
   position: relative;
 }
 .search-list li:last-child {
@@ -348,7 +350,7 @@ header .button-list li a span {
     top: 50%;
     z-index: 2;
     transform: translateY(-50%);
-    left: 12px; 
+    left: 12px;
 }
 .search-list li input[type="text"], .search-list li select {
     width: 100%;
@@ -386,7 +388,7 @@ header .button-list li a span {
     display: block;
     width: 100%;
     height: 52px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     text-transform: uppercase;
     border-radius: 6px;
     letter-spacing: 0;
@@ -716,7 +718,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cffbb033', e
     padding: 0 30px;
 }
 .counter-list li figure {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-size: 100px;
     line-height: 1;
     margin-bottom: 0;
@@ -824,7 +826,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cffbb033', e
     color: #000;
     margin: 0;
     font-weight: 700;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .business-list li .inner-box:after {
     content: "";
@@ -1062,7 +1064,7 @@ footer {
     font-size: 17px;
     line-height: 1.6;
     color: #454545;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .load_btn {
     font-size: 17px;
@@ -1243,7 +1245,7 @@ footer {
     margin-bottom: 26px;
 }
 .search_list_items-mod > li .list_content_wrap .place_title {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
@@ -1260,7 +1262,7 @@ footer {
 }
 .location_details p {
     margin-right: 30px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     line-height: 1.5;
 }
 .location_details p:last-child {
@@ -1289,7 +1291,7 @@ footer {
     flex: 1 0 0%;
 }
 .location_meta figcaption p {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     margin: 0;
     line-height: 1;
     text-transform: uppercase;
@@ -1297,7 +1299,7 @@ footer {
     color: #888;
 }
 .location_meta figcaption h4 {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     margin: 0;
 }
 .location_details {
@@ -1305,8 +1307,8 @@ footer {
     align-items: center;
 }
 .location_details p {
-    font-family: 'GT Walsheim Pro';
-    margin: 0;   
+    /* font-family: 'GT Walsheim Pro'; */
+    margin: 0;
 }
 .location_details span {
     display: flex;
@@ -1329,7 +1331,7 @@ footer {
     background: #f0f0f0;
     border-radius: 20px;
     font-size: 14px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     width: auto;
     white-space: nowrap;
 }
@@ -1428,7 +1430,7 @@ footer {
     /* border-bottom: 1px solid #1f457b; */
     font-size: 13px;
     font-weight: 400;
-    
+
   }
   .msb .navbar-nav li a .glyphicon, .msb .navbar-nav li a i {
     margin-right: 8px;
@@ -1445,7 +1447,7 @@ footer {
     margin-bottom: 30px;
     overflow: hidden;
   }
-  
+
   ul.nv,
   ul.ns {
     position: relative;
@@ -1476,7 +1478,7 @@ footer {
   .nv .ns li a {
     padding: 10px 50px;
   }
-  
+
   /*main content wrapper*/
   .mcw {
     margin-left: 300px;
@@ -1492,7 +1494,7 @@ footer {
   a:hover {
     text-decoration: none;
   }
-  
+
   .inbox .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -1508,7 +1510,7 @@ footer {
     display: block;
     padding: 10px 20px;
   }
-  
+
   .msb, .mnb {
     -moz-animation: slidein 300ms forwards;
     -o-animation: slidein 300ms forwards;
@@ -1517,7 +1519,7 @@ footer {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
-  
+
   .mcw {
     -moz-animation: bodyslidein 300ms forwards;
     -o-animation: bodyslidein 300ms forwards;
@@ -1526,7 +1528,7 @@ footer {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
-  
+
   body.msb-x .mcw, body.msb-x .mnb {
     margin-left: 0;
     -moz-animation: bodyslideout 300ms forwards;
@@ -1545,7 +1547,7 @@ footer {
     transform-style: preserve-3d;
     margin-left: -20px;
   }
-  
+
   /* Slide in animation */
   @-moz-keyframes slidein {
     0% {
@@ -1738,7 +1740,7 @@ footer {
     position: absolute;
     left: 0;
     padding: 19px 12px;
-    top: 0; 
+    top: 0;
 }
 .menuIcon i{
     font-size: 18px;
@@ -2377,13 +2379,13 @@ a {
 		display: inline-block;
 		transition: all .5s linear;
 	}
-	
+
 	.details_left .card{
 		border-radius:0;
 		padding:25px;
 		border-color:#cdcdcd;
 	}
-	
+
 	.details_left .nav-tabs .nav-item.show .nav-link, .details_left .nav-tabs .nav-link.active{
 		color: #fff;
 		background-color: #FF6153;
@@ -2423,7 +2425,7 @@ a {
 		width:90px;
 		height:90px;
 	}
-	
+
 	.details_left .card .load_btn{
 		width:100px;
 		font-size:14px;
@@ -2439,7 +2441,7 @@ a {
 		background:#fbb033;
 		color:#fff;
 	}
-	
+
 	.price-deat{
 		position: absolute;
 		top: 5%;
@@ -2481,7 +2483,7 @@ a {
 		display: block;
 		text-align:center;
 	}
-	
+
 	.details_right .card-body h5{
 		font-size:18px;
 		font-weight:bold;
@@ -2738,7 +2740,7 @@ a {
 	border: none;
 	border-radius: 7px;
 }
-.sidebar .search-widget .form-group input[type="text"], 
+.sidebar .search-widget .form-group input[type="text"],
 .sidebar .search-widget .form-group input[type="search"] {
 	position: relative;
 	line-height: 28px;
@@ -3202,8 +3204,8 @@ a {
 	position: relative;
 	margin-bottom: 50px;
 }
-.comment-form .form-group input[type="text"], .comment-form .form-group input[type="password"], 
-.comment-form .form-group input[type="tel"], .comment-form .form-group input[type="email"], 
+.comment-form .form-group input[type="text"], .comment-form .form-group input[type="password"],
+.comment-form .form-group input[type="tel"], .comment-form .form-group input[type="email"],
 .comment-form .form-group select {
 	position: relative;
 	display: block;
@@ -3292,7 +3294,7 @@ a {
 }
 .local_item_title p {
     margin-top: 15px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-size: 14px;
     line-height: 18px;
 }
@@ -3493,7 +3495,7 @@ a {
     font-size: 60px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: bold;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     text-transform: uppercase;
     line-height: 0.6;
 }
@@ -3610,7 +3612,7 @@ a {
     font-size: 27px;
     color: #000;
     font-weight: bold;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     text-transform: uppercase;
     max-width: calc(100% - 170px);
     line-height: 1.1;
@@ -3648,7 +3650,7 @@ a {
     border-radius: 10px;
     border: 2px solid rgb(255 97 83 / 50%);
     background: transparent;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 500;
     font-size: 14px;
     display: flex;
@@ -3768,10 +3770,10 @@ a {
     z-index: 9;
 }
 .offers-grid li .grid-content .shop-heading {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .grid-content .place {
-    font-family: 'GT Walsheim Pro';   
+    /* font-family: 'GT Walsheim Pro'; */
 }
 
 /*=====Responsive
@@ -3779,7 +3781,7 @@ a {
 
 
 /*@media(max-width:1430px) {
-    
+
     .banner-heading {
         font-size: 45px;
     }
@@ -3963,7 +3965,7 @@ a {
   }
 
 
-  @media(max-width:480px) { 
+  @media(max-width:480px) {
 
     /*.button-list {
         max-width: 198px;
@@ -4074,7 +4076,7 @@ a {
     border: none;
 }
 .search-list li input[type="text"] {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     padding: 35px;
     padding-left: 60px;
     border: none;
@@ -4101,7 +4103,7 @@ a {
   opacity: 1;
 }
 .search-list li select {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     padding: 35px;
     padding-left: 60px;
     border: none;
@@ -4141,7 +4143,7 @@ a {
     margin-bottom: 10px;
     background: #fff;
     border-radius: 10px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     color: #111;
     font-size: 12px;
     transition: all linear 0.5s;
@@ -4165,7 +4167,7 @@ a {
     padding: 10px;
     background: #fff;
     border-radius: 10px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     transition: all linear 0.5s;
     color: #111;
     font-size: 14px;
@@ -4190,11 +4192,11 @@ a {
 }
 .home-about h2 {
     font-size: 45px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 500;
 }
 .home-about h4 {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .home-about--slider figure {
     width: 100%;
@@ -4241,7 +4243,7 @@ a {
     font-weight: normal;
 }
 .home-counter--item p {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     color: #fff;
     margin: 0;
     line-height: 20px;
@@ -4259,7 +4261,7 @@ a {
     margin-bottom: 0;
 }
 .process-list p {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .process-list li span {
     -webkit-box-shadow: 0px 20px 40px 0px rgba(0,0,0,0.05);
@@ -4342,7 +4344,7 @@ a {
     line-height: 1.3;
 }
 .home-directory--slider figcaption h3 {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 500;
     margin: 0;
 }
@@ -4395,7 +4397,7 @@ a {
 .directory-bar nav {
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .directory-bar nav h2 {
     margin-bottom: 30px;
@@ -4501,7 +4503,7 @@ a {
     display: block;
     padding: 60px 0;
     background: #f0f0f0;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .event-holder {
     display: flex;
@@ -4551,7 +4553,7 @@ a {
     opacity: 0;
     transition: all linear 0.5s;
     color: #fff;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     z-index: 9;
 }
 .event-block figure:before {
@@ -4631,7 +4633,7 @@ a {
 }
 .event-title h3 {
     color: #fff;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 500;
 }
 .event-block.active .event-title {
@@ -4657,7 +4659,7 @@ a {
 }
 .home-event p {
     margin-bottom: 30px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .event-btn {
     display: inline-flex;
@@ -4707,7 +4709,7 @@ a {
     grid-row-gap: 30px;
 }
 .deals-block {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     display: flex;
     perspective: 1200px;
     flex-direction: column;
@@ -4754,8 +4756,8 @@ a {
 .deals-thumbs figure img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    border-radius: 10px;  
+    object-fit: cover;
+    border-radius: 10px;
 }
 .deals-thumbs figcaption {
     position: absolute;
@@ -4803,12 +4805,12 @@ a {
 .home-loop h2 {
     color: #fff;
     margin-bottom: 60px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 .home-loop h5 {
     font-size: 16px;
     text-transform: uppercase;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     color: #FF6153;
     font-weight: 500;
 }
@@ -4845,7 +4847,7 @@ a {
     display: flex;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     position: relative;
 }
 .loop-block:nth-child(1) {
@@ -4987,7 +4989,7 @@ a {
     margin-bottom: 30px;
 }
 .app-tag {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     display: inline-block;
     vertical-align: top;
     padding: 4px 15px;
@@ -5005,7 +5007,7 @@ a {
     -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,1), 0 15px 25px 0 rgb(249 71 67 / 30%);
     -moz-box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,1), 0 15px 25px 0 rgb(249 71 67 / 30%);
     box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,1), 0 15px 25px 0 rgb(249 71 67 / 30%);
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     border-radius: 4px;
     transition: 0.5s;
 }
@@ -5032,7 +5034,7 @@ a {
     border: none;
 }
 .main-heading {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     color: #fff;
     font-size: 24px;
     margin: 0;
@@ -5048,7 +5050,7 @@ a {
     height: 58px;
     margin: 0;
     border-radius: 4px 0 0 4px;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: normal;
     letter-spacing: 0;
     background: #fff;
@@ -5064,25 +5066,25 @@ a {
     align-items: center;
     justify-content: center;
     border: none;
-    color: #FF6153;  
+    color: #FF6153;
 }
 footer {
     background: #101010;
     border: none;
     color: #fff;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
 }
 footer p {
     color: #8e9196;
 }
 footer a, .footer-list li a {
     color: #8e9196;
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-size: 15px;
     font-weight: normal;
 }
 footer a:hover, .footer-list li a:hover {
-    color: #FF6153;   
+    color: #FF6153;
 }
 .copyright {
     border:  none;
@@ -5090,9 +5092,9 @@ footer a:hover, .footer-list li a:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 .footer-heading {
-    font-family: 'GT Walsheim Pro';
+    /* font-family: 'GT Walsheim Pro'; */
     font-weight: 500;
-    color: #fff;   
+    color: #fff;
     font-size: 20px;
 }
 .slick-dots li button:before {
@@ -5137,7 +5139,7 @@ footer a:hover, .footer-list li a:hover {
     color: #FF6153;
 }
 .page-link:hover {
-    color: #FF6153;   
+    color: #FF6153;
 }
 .inner-box .detil_img {
     position: relative;
@@ -5146,6 +5148,272 @@ footer a:hover, .footer-list li a:hover {
     bottom: 10px;
     left: 10px;
 }
+
+
+
+/* QuestionBox */
+.inner_banner{
+    background: url(../../images/postcode_banner.png) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    height: auto;
+    padding: 100px 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    /* padding-bottom: 45px; */
+    z-index: 1;
+}
+.inner_banner::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.69);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.inner_banner p {
+    color: #fff;
+    padding: 18px 0;
+}
+.inner_banner .place {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+}
+.inner_banner h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.questionBanner_text h1{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.questionBanner_text_bottom{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.questionBanner_text_bottom h3 {
+    color: #fff;
+    font-size: 28px;
+}
+.questionBanner_text_bottom p {
+    font-size: 17px;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+.searchCard{
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+.searchCard label{
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+.searchCard_form{
+    display: flex;
+    flex-wrap: wrap;
+}
+.searchCard_form input{
+    height: 50px;
+    flex: 1 0 0%;
+    padding: 8px 15px;
+    margin: 0;
+}
+.searchCard_formBtn{
+    background: #ff6153;
+    height: 50px;
+    color: #fff;
+    right: 0;
+    top: 0;
+    padding: 5px 30px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.questionSetItem_box_options_radio input{
+    width: auto;
+    margin: 0;
+    border: none;
+    height: auto;
+    position: static;
+}
+.questionSetItem_box_options_radio .form-check-label{
+    line-height: 1;
+}
+
+
+.questionSetItem:last-child{
+    margin-bottom: 0;
+}
+.questionSetItem_box h4 {
+    color:#261d16;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.questionSetItem_box{
+    margin-bottom: 15px;
+    min-height: 400px;
+}
+.questionSetItem_box input:not([type=radio]){
+    border-radius: 3px;
+    height: 50px;
+    margin: 0;
+}
+.questionSetItem_box select{
+    height: 50px;
+    padding-right: 35px;
+}
+.questionSetItem_box textarea{
+    height: 150px;
+    resize: none;
+    border-radius: 3px;
+}
+#questionModal .modal-header{
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+#questionModal .modal-header .close{
+    font-size: 25px;
+}
+.questionSetItemButton,
+.questionSetItemButtonSubmit {
+    width: 48%;
+    background: #ff6153;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+.questionSetItemButtonPrev {
+    width: 48%;
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    color: #2b2424;
+    border: 1px solid #eee;
+}
+.questionSetItemButtonPrev:hover{
+    background: #efefef;
+}
+.questionSetItemButton:hover,
+.questionSetItemButtonSubmit:hover{
+    background: #261d16;
+    color: #fff;
+}
+.questionSetItem_box_options{
+    margin-bottom: 15px;
+}
+.questionSetItem_box_options_radio{
+    margin-bottom: 10px;
+}
+.questionSetItem_box_options_radio:last-child{
+    margin-bottom: 0;
+}
+
+.questionSetItem_box_options_radio [type="radio"]:checked,
+.questionSetItem_box_options_radio [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.questionSetItem_box_options_radio [type="radio"]:checked + label,
+.questionSetItem_box_options_radio [type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+.questionSetItem_box_options_radio [type="radio"]:checked + label:before,
+.questionSetItem_box_options_radio [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+.questionSetItem_box_options_radio [type="radio"]:checked + label:after,
+.questionSetItem_box_options_radio [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #ff6153;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.questionSetItem_box_options_radio [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.questionSetItem_box_options_radio [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.questionSetItem{
+    display: none;
+}
+.questionSetItem:first-child{
+    display: block;
+}
+
+.questionAlertModalButton button{
+    width: 48%;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    letter-spacing: 0.5px;
+    border: 1px solid #eee;
+}
+.stayBtn {
+    background: #ff6153;
+    color: #fff;
+}
+.leaveBtn {
+    background: #fff;
+    color: #2b2424;
+    border-color: #eee;
+}
+.leaveBtn:hover{
+    background: #efefef;
+}
+.stayBtn:hover{
+    background: #261d16;
+    color: #fff;
+}
+.questionModalHide{
+    z-index: 1000 !important;
+}
+
+
+
+
 
 @media(max-width: 575px) {
     .home-banner {
@@ -5186,7 +5454,7 @@ footer a:hover, .footer-list li a:hover {
     .search-list li select {
         height: 48px;
         padding: 6px 10px 6px 30px;
-        line-height: 36px;   
+        line-height: 36px;
         line-height: 36px;
         font-size: 14px;
     }
@@ -5211,7 +5479,7 @@ footer a:hover, .footer-list li a:hover {
         color: #fff;
         margin-left: 15px;
         position: relative;
-        font-family: 'GT Walsheim Pro';
+        /* font-family: 'GT Walsheim Pro'; */
         top: auto;
         transform: none;
     }
@@ -5284,7 +5552,7 @@ footer a:hover, .footer-list li a:hover {
     }
     .home-event h2 {
         font-size: 26px;
-        margin-bottom: 15px;       
+        margin-bottom: 15px;
     }
     .home-event p {
         margin-bottom: 15px;
@@ -5394,7 +5662,7 @@ footer a:hover, .footer-list li a:hover {
     }
     .directory-bar nav h2 {
         font-size: 26px;
-        margin-bottom: 15px;       
+        margin-bottom: 15px;
     }
     .directory-bar ul {
         display: none;

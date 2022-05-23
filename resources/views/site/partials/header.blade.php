@@ -6,14 +6,14 @@
 					<img src="{{ asset('site/images/logo.png ')}}">
 				</a>
 			</div>
-			
+
 			<div class="col col-sm-auto order-sm-3 order-lg-last p-0 pl-sm-3 pr-sm-3">
 				<ul class="button-list">
 					<li>
 						@if(Auth::guard('user')->check())
 						<a href="{!! URL::to('site-edit-profile') !!}">
 							<!-- <span><img src="{{ asset('site/images/login-icon.png ')}}"></span> -->
-							
+
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
 							<span>Hi, {{Auth::guard('user')->user()->name}}</span>
 						</a>
@@ -55,9 +55,10 @@
 							<li><a href="{!! URL::to('event-list') !!}">Local Events </a></li>
 							<li><a href="{!! URL::to('deal-list') !!}">Local Deals </a></li>
 							<li><a href="{!! URL::to('local-loops') !!}">Local Loop</a></li>
+							<li><a href="{!! URL::to('get-quotes') !!}">Get quotes</a></li>
 						</ul>
 					</div>
-					
+
 					<div class="ham">
 						<img src="{{ asset('site/images/menu-toggle.png ')}}">
 					</div>

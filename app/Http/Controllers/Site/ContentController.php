@@ -14,7 +14,7 @@ class ContentController extends BaseController
      * ContentController constructor.
      */
     public function __construct(){
-        
+
     }
 
     public function index(){
@@ -42,5 +42,10 @@ class ContentController extends BaseController
     public function privacy(){
         $this->setPageTitle('Privacy Policy', 'Local Tales - Privacy Policy');
         return view('site.content.privacy');
+    }
+
+    public function getQuotes()
+    {
+        return view('site.quotes.index');
     }
 }

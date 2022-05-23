@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ asset('site/css/bootstrap.min.css ') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('site/css/slick.css ') }}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('site/css/slick-theme.css ') }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ asset('site/css/select2.min.css') }}"/>
   <link rel="stylesheet" href="{{ asset('site/css/style.css ') }}">
   <style type="text/css">
     .map-top{
@@ -26,6 +27,7 @@
 @stack('scripts')
 <script src="{{ asset('site/js/popper.min.js')}}"></script>
 <script src="{{ asset('site/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('site/js/select2.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('site/js/slick.min.js')}}"></script>
 
 
@@ -80,7 +82,7 @@ $('.home-directory--slider').on('afterChange', function(event, slick, currentSli
 
 // $('.home-directory--slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 //   $(".slick-slide").removeClass('works');
-//   $('.slick-current').addClass('works');        
+//   $('.slick-current').addClass('works');
 // });
 
 //community slider
@@ -306,11 +308,11 @@ $(document).ready(function(){
     e.stopPropagation();
   $('.filter_wrap').slideToggle();
   $('.page-search-block').toggleClass('filter-open');
-});  
+});
   $('.filter_wrap').click(function(e){
     e.stopPropagation();
   });
-  
+
   $(document).click(function(){
     $('.filter_wrap').slideUp();
   $('.page-search-block').removeClass('filter-open');
@@ -319,7 +321,33 @@ $(document).ready(function(){
 });
 
 
+$('.filter_select').select2({
+          width:"100%",
+        });
+        $(document).on('.filter_selectWrap select2:open', () => {
+          document.querySelector('.select2-search__field').focus();
+        });
 
+
+        $(".questionSetItemButton").click(function(){
+          $(this).parents(".questionSetItem").hide();
+          $(this).parents(".questionSetItem").next().show();
+        });
+        $(".questionSetItemButtonPrev").click(function(){
+          $(this).parents(".questionSetItem").hide();
+          $(this).parents(".questionSetItem").prev().show();
+        });
+        $("#questionModal").modal({
+        show:false,
+        backdrop:'static'
+        });
+
+        $(".openAlertModal").click(function(){
+          $("#questionModal").addClass("questionModalHide");
+        })
+        $(".closeAlertThis, .leaveBtn, .stayBtn").click(function(){
+          $("#questionModal").removeClass("questionModalHide");
+        })
 
 </script>
 

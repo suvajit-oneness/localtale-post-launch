@@ -58,4 +58,7 @@ Route::group(['middleware' => ['auth:user']], function () {
 Route::get('about-us','Site\ContentController@about');
 Route::get('terms-of-use','Site\ContentController@terms');
 Route::get('privacy-policy','Site\ContentController@privacy');
+
+// quotes
+Route::get('get-quotes','Site\ContentController@getQuotes')->name('get-quotes');
 ?>
