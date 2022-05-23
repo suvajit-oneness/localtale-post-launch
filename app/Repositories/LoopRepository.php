@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\Models\Loop;
 use App\Models\Loopcomment;
 use App\Models\Looplike;
+use App\Models\PinCode;
 use App\Traits\UploadAble;
 use Illuminate\Http\UploadedFile;
 use App\Contracts\LoopContract;
@@ -74,11 +75,11 @@ class LoopRepository extends BaseRepository implements LoopContract
             $loop->no_of_dislikes = 0;
             $loop->no_of_comments = 0;
             $loop->status = 1;
-            
+
             $loop->save();
 
             return $loop;
-            
+
         } catch (QueryException $exception) {
             throw new InvalidArgumentException($exception->getMessage());
         }
@@ -90,8 +91,8 @@ class LoopRepository extends BaseRepository implements LoopContract
      */
     public function updateLoop(array $params)
     {
-        $loop = $this->findOneOrFail($params['id']); 
-        $collection = collect($params)->except('_token'); 
+        $loop = $this->findOneOrFail($params['id']);
+        $collection = collect($params)->except('_token');
 
         $loop->content = $collection['content'];
 
@@ -140,7 +141,7 @@ class LoopRepository extends BaseRepository implements LoopContract
     public function detailsLoop($id)
     {
         $loops = Loop::with('user')->with('comments')->with('likes')->where('id',$id)->get();
-        
+
         return $loops;
     }
 
@@ -161,7 +162,7 @@ class LoopRepository extends BaseRepository implements LoopContract
     public function loopComments($id)
     {
         $comments = Loopcomment::with('user')->with('loop')->where('loop_id',$id)->get();
-        
+
         return $comments;
     }
 
@@ -180,11 +181,11 @@ class LoopRepository extends BaseRepository implements LoopContract
             $loopComment->user_id = $collection['user_id'];
             $loopComment->loop_id = $collection['loop_id'];
             $loopComment->status = 1;
-            
+
             $loopComment->save();
 
             return $loopComment;
-            
+
         } catch (QueryException $exception) {
             throw new InvalidArgumentException($exception->getMessage());
         }
@@ -220,5 +221,23 @@ class LoopRepository extends BaseRepository implements LoopContract
         }
 
         return true;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchBlog(string $term)
+    {
+        return Loop::where([['content', 'LIKE', '%' . $term . '%']])
+        ->orWhere('blog_category_id', 'LIKE', '%' . $term . '%')
+        ->orWhere('meta_title', 'LIKE', '%' . $term . '%')
+        ->orWhere('meta_key', 'LIKE', '%' . $term . '%')
+        ->get();
+    }
+
+    public function getPincode(){
+        $pin = PinCode::get();
+
+        return $pin;
     }
 }
