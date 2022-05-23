@@ -6,7 +6,7 @@
 {
     filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="g"><feColorMatrix type="matrix" values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/></filter></svg>#g');
     -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);    
+    filter: grayscale(100%);
     filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1);
 }
 </style> -->
@@ -74,7 +74,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
-					
+
 				</div>
 			</div>
 		</div>
@@ -129,14 +129,13 @@
 										</div>
 					  					<!-- <div class="col-12 p-0">
 											<div class="bg-orange text-center ">
-												
-                        						
+
 											  </div>
 										</div> -->
 					  				</div>
 					  			</li>
 					  			@endforeach
-					  			
+
 					  		</ul>
 					  		<!-- <a href="#" class="orange-btm load_btn">View All</a> -->
 					  	</div>
@@ -180,13 +179,13 @@
 												<img src="{{URL::to('/').'/categories/'}}{{$business->category->image}}" class="pt-2">
 											</div>
 										</div> -->
-					  					
+
 						  				<p class="history_details">{!!strip_tags(substr($business->description,0,180))!!}...</p>
 						  				<a href="{!! URL::to('directory-details/'.$business->id.'/'.strtolower(preg_replace("/[^a-zA-Z0-9]+/", "-", $business->business_name))) !!}" class="location_btn">View Details <img src="{{asset('site/images/right-arrow.png')}}"></a>
 					  				</div>
 					  			</li>
 					  			@endforeach
-								 
+
 					  		</ul>
 					  		<!-- <a href="#" class="orange-btm load_btn">View All</a> -->
 					  	</div>
@@ -216,7 +215,7 @@
 	console.log("businessLocations>>"+JSON.stringify(locations));
 
     console.log(JSON.stringify(locations));
-    
+
     var map = new google.maps.Map(document.getElementById('mapShow'), {
       zoom: 16,
       center: new google.maps.LatLng(locations[0][1], locations[0][2]),
@@ -275,19 +274,19 @@
 				}]
 			}],
     });
-    
+
     var infowindow = new google.maps.InfoWindow();
 
     var marker, i;
     var iconBase = 'http://cp-33.hostgator.tempwebhost.net/~a1627unp/dev/localtales_v2/public/site/images/';
-    
-    for (i = 0; i < locations.length; i++) {  
+
+    for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
         icon: iconBase + 'map_icon.png'
       });
-      
+
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infowindow.setContent(locations[i][0]);

@@ -321,33 +321,34 @@ $(document).ready(function(){
 });
 
 
-$('.filter_select').select2({
-          width:"100%",
-        });
-        $(document).on('.filter_selectWrap select2:open', () => {
-          document.querySelector('.select2-search__field').focus();
-        });
+    $('.filter_select').select2({
+        width:"100%",
+    });
+    $(document).on('.filter_selectWrap select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    });
 
+    $(".questionSetItemButton").click(function(){
+        $(this).parents(".questionSetItem").hide();
+        $(this).parents(".questionSetItem").next().show();
+    });
 
-        $(".questionSetItemButton").click(function(){
-          $(this).parents(".questionSetItem").hide();
-          $(this).parents(".questionSetItem").next().show();
-        });
-        $(".questionSetItemButtonPrev").click(function(){
-          $(this).parents(".questionSetItem").hide();
-          $(this).parents(".questionSetItem").prev().show();
-        });
-        $("#questionModal").modal({
+    $(".questionSetItemButtonPrev").click(function(){
+        $(this).parents(".questionSetItem").hide();
+        $(this).parents(".questionSetItem").prev().show();
+    });
+
+    $("#questionModal").modal({
         show:false,
         backdrop:'static'
-        });
+    });
 
-        $(".openAlertModal").click(function(){
-          $("#questionModal").addClass("questionModalHide");
-        })
-        $(".closeAlertThis, .leaveBtn, .stayBtn").click(function(){
-          $("#questionModal").removeClass("questionModalHide");
-        })
+    $(".openAlertModal").click(function(){
+        $("#questionModal").addClass("questionModalHide");
+    })
+    $(".closeAlertThis, .leaveBtn, .stayBtn").click(function(){
+        $("#questionModal").removeClass("questionModalHide");
+    })
 
 </script>
 

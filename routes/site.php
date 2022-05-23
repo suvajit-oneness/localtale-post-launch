@@ -61,4 +61,6 @@ Route::get('privacy-policy','Site\ContentController@privacy');
 
 // quotes
 Route::get('get-quotes','Site\ContentController@getQuotes')->name('get-quotes');
+Route::post('get-category','Site\ContentController@getCateory')->name('get-quotes.category');
+Route::post('submit-quotes','Site\ContentController@submitQuotes')->name('get-quotes.submit');
 ?>

@@ -2,20 +2,19 @@
 @section('title')  @endsection
 @section('content')
 
-
-
 <section class="inner_banner questionBanner">
     <div class="container">
         <div class="questionBanner_text">
             <h1>
-                We have tradies ready to help you with your job.
+                We have trades ready to help you with your job.
             </h1>
             <div class="searchCard">
                 <form action="">
                     <label>What do you need help with?</label>
                     <div class="searchCard_form">
-                        <input class="form-control" type="text" placeholder="e.g. Remove moudl from">
-                        <button type="button" data-toggle="modal" data-target="#questionModal" class="searchCard_formBtn btn">Get Quotes</button>
+                        <input class="form-control" type="text" name="search_category" placeholder="e.g. Decoration">
+                        <button type="button" class="searchCard_formBtn btn">Get Quotes</button>
+                        <div id="cat-result" class="dropdown-menu"></div>
                     </div>
                 </form>
             </div>
@@ -26,7 +25,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Modal -->
 <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModal" aria-hidden="true">
@@ -39,11 +37,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form action="{{ route('get-quotes.submit') }}" method="POST">
                     <div class="questionSetItem">
                         <div class="questionSetItem_box">
                             <h4>What is your postcode?</h4>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name="postcode">
                         </div>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="questionSetItemButton">Next</button>
@@ -52,11 +50,15 @@
 
                     <div class="questionSetItem">
                         <div class="questionSetItem_box">
-                            <h4>What is your Question?</h4>
-                            <select class="form-control"    >
-                                <option>Select 1</option>
-                                <option>Select 2</option>
-                                <option>Select 3</option>
+                            <h4>What are your timeframes for the job?</h4>
+                            <select class="form-control" name="time_frame">
+                                <option value="Today">Today</option>
+                                <option value="Tomorrow">Tomorrow</option>
+                                <option value="2-7 days">2-7 days</option>
+                                <option value="8-14 days">8-14 days</option>
+                                <option value="15-30 days">15-30 days</option>
+                                <option value="1-2 months">1-2 months</option>
+                                <option value="2 months+</">2 months+</option>
                             </select>
                         </div>
                         <div class="d-flex justify-content-between">
@@ -64,48 +66,82 @@
                             <button type="button" class="questionSetItemButton">Next</button>
                         </div>
                     </div>
+
+                    {{-- <div class="questionSetItem">
+                        <div class="questionSetItem_box">
+                            <h4>What is your budget?</h4>
+                            <select class="form-control">
+                                <option>< $500</option>
+                                <option>$501 - $1,000</option>
+                                <option>$1,001 - $2,500</option>
+                                <option>$2,501 - $5,000</option>
+                                <option>$5,001 - $10,000</option>
+                                <option>$10,000+</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="questionSetItemButtonPrev">Prev</button>
+                            <button type="button" class="questionSetItemButton">Next</button>
+                        </div>
+                    </div> --}}
+
                     <div class="questionSetItem">
                         <div class="questionSetItem_box">
-                            <h4>What is your Question?</h4>
-                            <textarea placeholder="Enter Text" class="form-control"></textarea>
+                            <h4>Provide more details for your job</h4>
+                            <textarea placeholder="Enter Text" class="form-control" name="job_details"></textarea>
                         </div>
                         <div class="d-flex justify-content-between">
                             <button type="button" class="questionSetItemButtonPrev">Prev</button>
                             <button type="button" class="questionSetItemButton">Next</button>
                         </div>
                     </div>
+
                     <div class="questionSetItem">
                         <div class="questionSetItem_box">
                             <h4>What is your budget?</h4>
                             <div class="questionSetItem_box questionSetItem_box_options">
                                 <div class="questionSetItem_box_options_radio">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <input class="form-check-input" type="radio" name="budget" value="Less than $500" id="flexRadioDefault1" checked>
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                        Default radio
+                                        < $500
                                     </label>
                                 </div>
                                 <div class="questionSetItem_box_options_radio">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                    <input class="form-check-input" type="radio" name="budget" value="$501 - $1,000" id="flexRadioDefault2">
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                        Default radio
+                                        $501 - $1,000
                                     </label>
                                 </div>
                                 <div class="questionSetItem_box_options_radio">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                    <input class="form-check-input" type="radio" name="budget" value="$1,001 - $2,500" id="flexRadioDefault3">
                                     <label class="form-check-label" for="flexRadioDefault3">
-                                        Default radio
+                                        $1,001 - $2,500
                                     </label>
                                 </div>
                                 <div class="questionSetItem_box_options_radio">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                    <input class="form-check-input" type="radio" name="budget" value="$2,501 - $5,000" id="flexRadioDefault4">
                                     <label class="form-check-label" for="flexRadioDefault4">
-                                        Default radio
+                                        $2,501 - $5,000
+                                    </label>
+                                </div>
+                                <div class="questionSetItem_box_options_radio">
+                                    <input class="form-check-input" type="radio" name="budget" value="$5,001 - $10,000" id="flexRadioDefault5">
+                                    <label class="form-check-label" for="flexRadioDefault5">
+                                        $5,001 - $10,000
+                                    </label>
+                                </div>
+                                <div class="questionSetItem_box_options_radio">
+                                    <input class="form-check-input" type="radio" name="budget" value="$10,000+" id="flexRadioDefault6">
+                                    <label class="form-check-label" for="flexRadioDefault6">
+                                        $10,000+
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
                             <button type="button" class="questionSetItemButtonPrev">Prev</button>
+                            <input type="hidden" name="category" value="">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <button type="submit" class="questionSetItemButtonSubmit">Submit</button>
                         </div>
                         </div>
@@ -117,22 +153,66 @@
 </div>
 
 <!-- Modal -->
-    <div class="modal fade" id="questionAlertModal" tabindex="-1" aria-labelledby="questionAlertModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="mb-4 text-center">
-                        <h4>Are you sure you want to leave?</h4>
-                        <p>Closing this form will erase all the answers you’ve provided.</p>
-                    </div>
-                    <div class="d-flex justify-content-between questionAlertModalButton">
-                        <button type="button" class="btn leaveBtn" data-toggle="modal" data-target="#questionModal" data-dismiss="modal">Leave</button>
-                        <button type="button" class="btn stayBtn" data-dismiss="modal">Stay and Post Your Job</button>
-                    </div>
+<div class="modal fade" id="questionAlertModal" tabindex="-1" aria-labelledby="questionAlertModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="mb-4 text-center">
+                    <h4>Are you sure you want to leave?</h4>
+                    <p>Closing this form will erase all the answers you’ve provided.</p>
+                </div>
+                <div class="d-flex justify-content-between questionAlertModalButton">
+                    <button type="button" class="btn leaveBtn" data-toggle="modal" data-target="#questionModal" data-dismiss="modal">Leave</button>
+                    <button type="button" class="btn stayBtn" data-dismiss="modal">Stay and Post Your Job</button>
                 </div>
             </div>
         </div>
     </div>
-
-
+</div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // category search
+            $('input[name="search_category"]').on('keyup', function() {
+                $.ajax({
+                    url: '{{route("get-quotes.category")}}',
+                    type: 'POST',
+                    data: {_token: "{{csrf_token()}}", data: $(this).val()},
+                    success: function(result) {
+                        var successContent = '';
+                        if (result.type == "success") {
+                            $.each(result.data, (key, value) => {
+                                successContent += `<a class="dropdown-item" href="javascript: void(0)">${value.title}</a>`;
+                            });
+                            $('#cat-result').html(successContent).addClass('show');
+                        } else {
+                            successContent += `<h6 class="dropdown-header">Please try again</h6>`;
+                            $('#cat-result').html(successContent).addClass('show');
+                        }
+                    }
+                });
+            });
+
+            // show cat result on input type
+            $(document).on('click', '#cat-result .dropdown-item', function() {
+                var data = $(this).text();
+                $('input[name="search_category"]').val(data);
+                $('#cat-result').removeClass('show');
+            });
+
+            $('.searchCard_formBtn').on('click', function() {
+                var cat = $('input[name="search_category"]').val();
+                if (cat.length > 0) {
+                    $('input[name="category"]').val(cat);
+                    $('#questionModal').modal('show');
+                }
+            });
+
+            $('#questionModal').on('shown.bs.modal', function (e) {
+                $('input[name="postcode"]').focus();
+            })
+        });
+    </script>
+@endpush
