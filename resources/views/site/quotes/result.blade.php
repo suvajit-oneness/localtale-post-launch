@@ -2,17 +2,15 @@
 @section('title')  @endsection
 @section('content')
 
-{{-- {{ dd($queryRFQ) }} --}}
-
 <section class="quotesBody">
     @if (count($resp) > 0)
         <div class="container">
             <div class="quotesBody__top">
-                <a href="#">
+                <a href="{{route('get-quotes')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                 </svg>
-                Back to Jobs</a>
+                Back to get Quotes</a>
                 <h1 class="mb-0">We found something for you!</h1>
             </div>
             <div class="quotesBody__bottom">
@@ -67,7 +65,7 @@
                                             <td align="right">Within a few days</td>
                                         </tr>
                                     </tbody>
-                                </table>                                
+                                </table>
                             </div>
                             <div class="quotesService_bottom">
                                 <div class="quotesService_bottom_des">
@@ -88,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
     @else

@@ -38,7 +38,103 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('get-quotes.submit') }}" method="POST">
+                    @php
+                        $trade_questions = \Illuminate\Support\Facades\DB::table('local_trade_questions')->orderBy('position', 'asc')->get();
+                    @endphp
+
+                    @foreach ($trade_questions as $questionKey => $questionValue)
                     <div class="questionSetItem">
+                        <div class="questionSetItem_box">
+                            <h4>{{$questionValue->question}}</h4>
+                            @switch($questionValue->type)
+                                @case('text')
+                                    <input type="text" placeholder="" name="{{$questionValue->name}}">
+                                    @break
+                                @case('select')
+                                    <select class="form-control" name="{{$questionValue->name}}">
+                                        @php
+                                            $valArr = explode(', ', $questionValue->answer);
+                                        @endphp
+                                        @foreach ($valArr as $item)
+                                        <option value="{{$item}}">{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                    @break
+                                @case('textarea')
+                                    <textarea placeholder="Enter Text" class="form-control" name="{{$questionValue->name}}"></textarea>
+                                    @break
+                                @case('radio')
+                                    <div class="questionSetItem_box questionSetItem_box_options">
+                                        @php
+                                            $valArr = explode(', ', $questionValue->answer);
+                                        @endphp
+                                        @foreach ($valArr as $itemKey => $itemVal)
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="{{$questionValue->name}}" value="{{$itemVal}}" id="flexRadioDefault{{$itemKey}}" {{ ($itemKey == 0) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexRadioDefault{{$itemKey}}">
+                                                {{$itemVal}}
+                                            </label>
+                                        </div>
+                                        @endforeach
+                                        {{-- <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="Less than $500" id="flexRadioDefault1" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                < $500
+                                            </label>
+                                        </div>
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="$501 - $1,000" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                $501 - $1,000
+                                            </label>
+                                        </div>
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="$1,001 - $2,500" id="flexRadioDefault3">
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                                $1,001 - $2,500
+                                            </label>
+                                        </div>
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="$2,501 - $5,000" id="flexRadioDefault4">
+                                            <label class="form-check-label" for="flexRadioDefault4">
+                                                $2,501 - $5,000
+                                            </label>
+                                        </div>
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="$5,001 - $10,000" id="flexRadioDefault5">
+                                            <label class="form-check-label" for="flexRadioDefault5">
+                                                $5,001 - $10,000
+                                            </label>
+                                        </div>
+                                        <div class="questionSetItem_box_options_radio">
+                                            <input class="form-check-input" type="radio" name="budget" value="$10,000+" id="flexRadioDefault6">
+                                            <label class="form-check-label" for="flexRadioDefault6">
+                                                $10,000+
+                                            </label>
+                                        </div> --}}
+                                    </div>
+                                    @break
+                                @default
+
+                            @endswitch
+                        </div>
+                        <div class="d-flex {{($questionKey == 0) ? 'justify-content-end' : 'justify-content-between'}}">
+                            @if ($questionKey == 0)
+                                <button type="button" class="questionSetItemButton">Next</button>
+                            @elseif ($questionKey + 1 == count($trade_questions))
+                                <button type="button" class="questionSetItemButtonPrev">Prev</button>
+                                <input type="hidden" name="category" value="">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                <button type="submit" class="questionSetItemButtonSubmit">Submit</button>
+                            @else
+                                <button type="button" class="questionSetItemButtonPrev">Prev</button>
+                                <button type="button" class="questionSetItemButton">Next</button>
+                            @endif
+                        </div>
+                    </div>
+                    @endforeach
+
+                    {{-- <div class="questionSetItem">
                         <div class="questionSetItem_box">
                             <h4>What is your postcode?</h4>
                             <input type="text" placeholder="" name="postcode">
@@ -66,24 +162,6 @@
                             <button type="button" class="questionSetItemButton">Next</button>
                         </div>
                     </div>
-
-                    {{-- <div class="questionSetItem">
-                        <div class="questionSetItem_box">
-                            <h4>What is your budget?</h4>
-                            <select class="form-control">
-                                <option>< $500</option>
-                                <option>$501 - $1,000</option>
-                                <option>$1,001 - $2,500</option>
-                                <option>$2,501 - $5,000</option>
-                                <option>$5,001 - $10,000</option>
-                                <option>$10,000+</option>
-                            </select>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="questionSetItemButtonPrev">Prev</button>
-                            <button type="button" class="questionSetItemButton">Next</button>
-                        </div>
-                    </div> --}}
 
                     <div class="questionSetItem">
                         <div class="questionSetItem_box">
@@ -144,7 +222,7 @@
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <button type="submit" class="questionSetItemButtonSubmit">Submit</button>
                         </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </div>
@@ -188,7 +266,7 @@
                             });
                             $('#cat-result').html(successContent).addClass('show');
                         } else {
-                            successContent += `<h6 class="dropdown-header">Please try again</h6>`;
+                            successContent += `<h6 class="dropdown-header">Please try again!</h6>`;
                             $('#cat-result').html(successContent).addClass('show');
                         }
                     }
@@ -200,14 +278,14 @@
                 var data = $(this).text();
                 $('input[name="search_category"]').val(data);
                 $('#cat-result').removeClass('show');
-            });
 
-            $('.searchCard_formBtn').on('click', function() {
-                var cat = $('input[name="search_category"]').val();
-                if (cat.length > 0) {
-                    $('input[name="category"]').val(cat);
-                    $('#questionModal').modal('show');
-                }
+                $('.searchCard_formBtn').on('click', function() {
+                    var cat = $('input[name="search_category"]').val();
+                    if (cat.length > 0) {
+                        $('input[name="category"]').val(cat);
+                        $('#questionModal').modal('show');
+                    }
+                });
             });
 
             $('#questionModal').on('shown.bs.modal', function (e) {

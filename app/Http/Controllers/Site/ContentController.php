@@ -57,7 +57,7 @@ class ContentController extends BaseController
         if (count($resp) > 0) {
             return response()->json(['type' => 'success', 'message' => 'Data found', 'data' => $resp], 200);
         } else {
-            return response()->json(['type' => 'failure', 'message' => 'No data found'], 400);
+            return response()->json(['type' => 'failure', 'message' => 'No data found'], 200);
         }
     }
 
