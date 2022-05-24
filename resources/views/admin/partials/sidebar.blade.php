@@ -98,6 +98,32 @@
                 <span class="app-menu__label">Blog Management</span>
             </a>
         </li>
+        <li class="text-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <a href="#" class="app-menu__item @if(request()->is('admin/state*') || request()->is('admin/pin*') || request()->is('admin/suburb*')) {{ 'active' }} @endif">
+                <span class="app-menu__label">MarketPlace</span>
+                <i class="app-menu__icon fa fa-chevron-down"></i>
+            </a>
+        </li>
+        <div id="collapseOne" class="collapse @if(request()->is('admin/market-cat*') || request()->is('admin/market-subcat*') || request()->is('admin/suburb*')) {{ 'show' }} @endif" aria-labelledby="headingOne" data-parent="#accordion">
+            <!---State management-->
+            <li>
+                <a class="app-menu__item {{ request()->is('admin/market-cat*') ? 'active' : '' }} {{ sidebar_open(['admin.market-cat']) }}"
+                    href="{{ route('admin.market-cat.index') }}">
+                    <i class="app-menu__icon fa fa-flag"></i>
+                    <span class="app-menu__label">Category management</span>
+                </a>
+            </li>
+            <!---Pin code management-->
+            <li>
+                <a class="app-menu__item {{ request()->is('admin/market-subcat*') ? 'active' : '' }} {{ sidebar_open(['admin.market-subcat']) }}"
+                    href="{{ route('admin.market-subcat.index') }}"><i class="app-menu__icon fa fa-map-pin"></i>
+                    <span class="app-menu__label">SubCategory management</span>
+                </a>
+            </li>
+            <!--- Suburb management --->
+
+
+        </div>
         <li>
             <a class="app-menu__item {{ sidebar_open(['admin.settings']) }}"
                 href="{{ route('admin.settings') }}"><i class="app-menu__icon fa fa-cogs"></i>

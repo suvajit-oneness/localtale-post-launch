@@ -21,7 +21,6 @@
                             <td>PinCode</td>
                             <td>{{ empty($blog['pincode'])? null:$blog['pincode'] }}</td>
                         </tr>
-                        
                     </tbody>
                 </table>
                 <a class="btn btn-primary" href="{{ route('site.localloop.post') }}">Cancel</a>

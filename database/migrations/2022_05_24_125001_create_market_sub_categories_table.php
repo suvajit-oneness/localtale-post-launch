@@ -15,6 +15,10 @@ class CreateMarketSubCategoriesTable extends Migration
     {
         Schema::create('market_sub_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('category_id');
+            $table->string('title');
+            $table->string('image');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
