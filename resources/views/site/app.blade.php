@@ -28,6 +28,7 @@
 <script src="{{ asset('site/js/popper.min.js')}}"></script>
 <script src="{{ asset('site/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('site/js/select2.min.js')}}"></script>
+<script src="{{ asset('site/js/jquery-equal-height.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('site/js/slick.min.js')}}"></script>
 
 
@@ -256,38 +257,38 @@ $('.event-block').hover(function(){
 });
 
 // counter
-var a = 0;
-$(window).scroll(function() {
+// var a = 0;
+// $(window).scroll(function() {
 
-  var oTop = $('.counter-list').offset().top - window.innerHeight;
-  if (a == 0 && $(window).scrollTop() > oTop) {
-    $('.counter-list li figure').each(function() {
-      var $this = $(this),
-        countTo = $this.attr('data-count');
-      $({
-        countNum: $this.text()
-      }).animate({
-          countNum: countTo
-        },
+//   var oTop = $('.counter-list').offset().top - window.innerHeight;
+//   if (a == 0 && $(window).scrollTop() > oTop) {
+//     $('.counter-list li figure').each(function() {
+//       var $this = $(this),
+//         countTo = $this.attr('data-count');
+//       $({
+//         countNum: $this.text()
+//       }).animate({
+//           countNum: countTo
+//         },
 
-        {
+//         {
 
-          duration: 1000,
-          easing: 'swing',
-          step: function() {
-            $this.text(Math.floor(this.countNum));
-          },
-          complete: function() {
-            $this.text(this.countNum);
-            //alert('finished');
-          }
+//           duration: 1000,
+//           easing: 'swing',
+//           step: function() {
+//             $this.text(Math.floor(this.countNum));
+//           },
+//           complete: function() {
+//             $this.text(this.countNum);
+//             //alert('finished');
+//           }
 
-        });
-    });
-    a = 1;
-  }
+//         });
+//     });
+//     a = 1;
+//   }
 
-});
+// });
 
 
 
@@ -349,6 +350,33 @@ $(document).ready(function(){
     $(".closeAlertThis, .leaveBtn, .stayBtn").click(function(){
         $("#questionModal").removeClass("questionModalHide");
     })
+
+    $(".seeMore").click(function(){
+      $(".quotesService_bottom").slideToggle();
+      var text = 'See Less';
+      var $this = $('.seeMore');
+      if ($this.text() === text) {
+        $(this).text('See More');
+      } else {
+        $this.text(text);
+      }
+    });
+
+    $('#activate').click(function () { 
+    var text = 'Activate';
+    // save $(this) so jQuery doesn't have to execute again
+    var $this = $('#activate');
+    if ($this.text() === text) {
+        $(this).text('Deactivate').toggleClass("label-warning label-danger");
+    } else {
+        $this.text(text).toggleClass("label-danger label-warning");;
+    }
+});
+
+    $(window).on('load', function(event) {
+        $('.jQueryEqualHeight').jQueryEqualHeight('.quotes__card');
+        $('.jQueryEqualHeight').jQueryEqualHeight('.card-title');
+    });
 
 </script>
 

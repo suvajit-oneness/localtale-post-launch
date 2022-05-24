@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'GT Walsheim Pro';
-    src: url('GTWalsheimPro-Medium.woff2') format('woff2'),
-        url('GTWalsheimPro-Medium.woff') format('woff');
-    font-weight: 500;
+    src: url('GTWalsheimPro-Light.woff2') format('woff2'),
+        url('GTWalsheimPro-Light.woff') format('woff');
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }

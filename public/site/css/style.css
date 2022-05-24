@@ -1,20 +1,18 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 
-/* @font-face {
-    font-family: 'GT Walsheim Pro Ultra';
-    src: url('../fonts/GTWalsheimPro-UltraBold.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-UltraBold.woff') format('woff');
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url('../fonts/GTWalsheimProBold.woff2') format('woff2'),
+        url('../fonts/GTWalsheimProBold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'GT Walsheim Pro';
-    src: url('../fonts/GTWalsheimPro-Regular.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Regular.woff') format('woff');
+    src: url('../fonts/GTWalsheimProRegular.woff2') format('woff2'),
+        url('../fonts/GTWalsheimProRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -28,7 +26,15 @@
     font-display: swap;
 }
 @font-face {
-    font-family: 'GT Walsheim Pro Condensed';
+    font-family: 'GT Walsheim Pro';
+    src: url('../fonts/GTWalsheimPro-Light.woff2') format('woff2'),
+        url('../fonts/GTWalsheimPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+/* @font-face {
+    font-family: 'GT Walsheim Pro';
     src: url('../fonts/GTWalsheimPro-CondensedRegular.woff2') format('woff2'),
         url('../fonts/GTWalsheimPro-CondensedRegular.woff') format('woff');
     font-weight: normal;
@@ -39,11 +45,12 @@
 /*===Style Start
 =================*/
 body {
-    /* font-family: 'GT Walsheim Pro'; */
+    font-family: 'GT Walsheim Pro';
     font-weight: 400;
     font-size: 16px;
     overflow-x: hidden;
-    font-family: 'Montserrat', sans-serif
+    letter-spacing: 0.5px;
+    /* font-family: 'Montserrat', sans-serif */
 }
 
 a:hover {
@@ -61,10 +68,9 @@ input:focus, input:hover, select:focus, select:hover {
 	box-shadow: none;
 }
 p {
-	/* font-family: 'GT Walsheim Pro'; */
     color: #2e2b2b;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.8;
 }
 
@@ -4196,7 +4202,7 @@ a {
     font-weight: 500;
 }
 .home-about h4 {
-    /* font-family: 'GT Walsheim Pro'; */
+    font-weight: 500;
 }
 .home-about--slider figure {
     width: 100%;
@@ -4237,7 +4243,7 @@ a {
 }
 .home-counter--item span {
     font-size: 50px;
-    font-family: 'GT Walsheim Pro Condensed';
+    font-family: 'GT Walsheim Pro';
     margin-right: 15px;
     line-height: 1;
     font-weight: normal;
@@ -4259,9 +4265,6 @@ a {
 }
 .process-list li:last-child {
     margin-bottom: 0;
-}
-.process-list p {
-    /* font-family: 'GT Walsheim Pro'; */
 }
 .process-list li span {
     -webkit-box-shadow: 0px 20px 40px 0px rgba(0,0,0,0.05);
@@ -4659,7 +4662,6 @@ a {
 }
 .home-event p {
     margin-bottom: 30px;
-    /* font-family: 'GT Walsheim Pro'; */
 }
 .event-btn {
     display: inline-flex;
@@ -5071,24 +5073,24 @@ a {
 footer {
     background: #101010;
     border: none;
-    color: #fff;
+    color: #c5c5c5;
     /* font-family: 'GT Walsheim Pro'; */
 }
 footer p {
-    color: #8e9196;
+    color: #c5c5c5;
 }
 footer a, .footer-list li a {
-    color: #8e9196;
+    color: #c5c5c5;
     /* font-family: 'GT Walsheim Pro'; */
     font-size: 15px;
-    font-weight: normal;
+    font-weight: 300;
 }
 footer a:hover, .footer-list li a:hover {
     color: #FF6153;
 }
 .copyright {
     border:  none;
-    font-weight: normal;
+    font-weight: 300;
     background: rgba(255, 255, 255, 0.05);
 }
 .footer-heading {
@@ -5211,6 +5213,7 @@ footer a:hover, .footer-list li a:hover {
     font-size: 17px;
     padding: 10px 0;
     line-height: 1.5;
+    color: #d5d5d5;
 }
 .searchCard{
     max-width: 700px;
@@ -5218,7 +5221,7 @@ footer a:hover, .footer-list li a:hover {
 }
 .searchCard label{
     color: #fff;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 18px;
 }
 .searchCard_form{
@@ -5242,7 +5245,9 @@ footer a:hover, .footer-list li a:hover {
     font-weight: 500;
     margin-left: 10px;
 }
-
+.searchCard_form .dropdown-item{
+    font-weight: 300;
+}
 .questionSetItem_box_options_radio input{
     width: auto;
     margin: 0;
@@ -5270,8 +5275,9 @@ footer a:hover, .footer-list li a:hover {
 }
 .questionSetItem_box input:not([type=radio]){
     border-radius: 3px;
-    height: 50px;
+    height: 44px;
     margin: 0;
+    background: #f8f8f8;
 }
 .questionSetItem_box select{
     height: 50px;
@@ -5412,8 +5418,154 @@ footer a:hover, .footer-list li a:hover {
     z-index: 1000 !important;
 }
 
+.quotesNotFound{
+    text-align: center;
+}
+.quotesNotFound_text{
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
 
 
+/* Quotes Result */
+.quotesBody{
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+.quotesBody__top{
+    margin-bottom: 35px;
+}
+.quotesBody__top a{
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #555;
+}
+.quotesBody__top a svg{
+    margin-right: 10px;
+}
+.quotesBody__top h1{
+    font-size: 35px;
+}
+
+.quotesService_card{
+    background: #fff;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.14);
+    border-radius: 5px;
+}
+.quotesService_top{
+    min-height: 180px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.quotesService_top:after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+.quotesService_middle table{
+    width: 100%;
+}
+.quotesService_middle table td{
+    padding: 8px 10px;
+    font-weight: 300;
+    color: #333;
+    font-size: 15px;
+}
+.quotesService_middle table td strong{
+    color: #111;
+    font-weight: 500;
+}
+.quotesService_middle{
+    padding: 12px 10px;
+}
+.quotesService_top_text{
+    text-align: center;
+}
+.quotesService_top_text h4{
+    letter-spacing: 1px;
+    color: #fff;
+}
+.quotesService_top_text p{
+    letter-spacing: 1px;
+    color: #fff;
+}
+.quotesService_bottom{
+    padding: 0 20px 20px;
+    display: none;
+}
+.quotesService_bottom p{
+    letter-spacing: 0.8px;
+}
+.seeMore {
+    display: inline-block;
+    padding: 5px 5px;
+    border-radius: 3px;
+    color: #fff;
+    background: #FF6153;
+    font-size: 12px;
+    line-height: 1.1;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.seeMore:hover{
+    color: #fff;
+    background: #000;
+    box-shadow: 0px 15px 25px 0px rgb(0 0 0 / 30%);
+}
+.seeMoreWrap {
+    padding: 0 20px 20px;
+}
+
+.quotes__cardWrap{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.quotes__cardWrap [class*="col"]{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.quotes__cardWrap .card-body{
+    padding: 0;
+    flex: inherit;
+}
+.quotes__card {
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 10%);
+    border: none;
+}
+.quotes__card .card-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #282828;
+}
+.quotes__card .card-text a {
+    font-weight: 300;
+    font-size: 15px;
+}
+.quotes__card .card-text a svg path{
+    color: #FF6153;
+}
+.quotes__card .card-text a svg {
+    width: 20px;
+    transform: rotate(10deg);
+}
 
 
 @media(max-width: 575px) {
