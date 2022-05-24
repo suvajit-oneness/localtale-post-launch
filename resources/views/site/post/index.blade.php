@@ -8,7 +8,7 @@
                 <p></p>
             </div>
             <div class="col-md-6 text-right">
-                <a href="{{ route('admin.blog.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
+                <a href="{{ route('site.localloop.post.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
                 {{-- <a href="#csvUploadModal" data-toggle="modal" class="btn btn-primary "><i class="fa fa-cloud-upload"></i> CSV Upload</a> --}}
                 {{-- <a href="{{ route('admin.blog.data.csv.export') }}" class="btn btn-primary "><i class="fa fa-cloud-download"></i> CSV Export</a> --}}
             </div>
@@ -20,7 +20,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col">
                     <ul>
-                        <li class="active"><a href="{{ route('admin.blog.index') }}">All <span class="count">({{$blogs->count()}})</span></a></li>
+                        <li class="active"><a href="{{ route('site.localloop.post') }}">All <span class="count">({{$blogs->count()}})</span></a></li>
                         {{-- @php
                             $activeCount = $inactiveCount = 0;
                             foreach ($data as $catKey => $catVal) {
@@ -33,13 +33,13 @@
                     </ul>
                 </div>
                 <div class="col-auto">
-                    <form action="{{ route('admin.blog.index') }}">
+                    <form action="{{ route('site.localloop.post') }}">
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
                         <input type="search" name="term" id="term" class="form-control" placeholder="Search here.." value="{{app('request')->input('term')}}" autocomplete="off">
                         </div>
                         <div class="col-auto">
-                        <button type="submit" class="btn btn-outline-danger btn-sm">Search Blog</button>
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Search Loop</button>
                         </div>
                     </div>
                     </form>
@@ -51,11 +51,10 @@
                     <table class="table table-hover custom-data-table-style table-striped">
                         <thead>
                             <tr>
-                                <th class="text-center"><i class="fi fi-br-picture"></i> Image</th>
-                                <th> Title </th>
-                                <th> Description </th>
-                                <th> Category </th>
-                                <th> Sub Category </th>
+
+                                <th> Content </th>
+                                <th> ZipCode </th>
+
                                 <th> Status </th>
                                 <th style="width:100px; min-width:100px;" class="text-center">Action</th>
                             </tr>
@@ -63,26 +62,11 @@
                         <tbody>
                             @foreach($blogs as $key => $blog)
                                 <tr>
-                                    <td>
-                                        @if($blog->image!='')
-                                        <img style="width: 100px;height: 100px;" src="{{URL::to('/').'/Blogs/'}}{{$blog->image}}">
-                                        @endif
-                                    </td>
 
-                                    <td>{{ $blog->title }}</td>
-                                    <td>@php
-                                        $desc = strip_tags($blog['meta_description']);
-                                        $length = strlen($desc);
-                                        if($length>50)
-                                        {
-                                            $desc = substr($desc,0,50)."...";
-                                        }else{
-                                            $desc = substr($desc,0,50);
-                                        }
-                                    @endphp
-                                    {!! $desc !!}</td>
-                                    <td>{{$blog->category ? $blog->category->title : '' }}</td>
-                                    <td>{{ $blog->subcategory ? $blog->subcategory->title : '' }}</td>
+
+                                    <td>{{ $blog->content }}</td>
+                                    <td>{{ $blog->pincode }}</td>
+
 
 
 
@@ -90,7 +74,7 @@
                                     <div class="toggle-button-cover margin-auto">
                                         <div class="button-cover">
                                             <div class="button-togglr b2" id="button-11">
-                                                <input id="toggle-block" type="checkbox" name="status" class="checkbox" data-blog_id="{{ $blog['id'] }}" {{ $blog['status'] == 1 ? 'checked' : '' }}>
+                                                <input id="toggle-block" type="checkbox" name="status" class="checkbox" data-id="{{ $blog['id'] }}" {{ $blog['status'] == 1 ? 'checked' : '' }}>
                                                 <div class="knobs"><span>Inactive</span></div>
                                                 <div class="layer"></div>
                                             </div>
@@ -155,7 +139,7 @@
         },
         function(isConfirm){
           if (isConfirm) {
-            window.location.href = "site.localloop.post/"+id+"/delete";
+            window.location.href = "site-LocalLoop-post/"+id+"/delete";
             } else {
               swal("Cancelled", "Record is safe", "error");
             }
@@ -164,7 +148,7 @@
     </script>
     <script type="text/javascript">
         $('input[id="toggle-block"]').change(function() {
-            var blog_id = $(this).data('blog_id');
+            var id = $(this).data('id');
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var check_status = 0;
           if($(this).is(":checked")){
@@ -176,7 +160,7 @@
                 type:'POST',
                 dataType:'JSON',
                 url:"{{route('site.localloop.post.updateStatus')}}",
-                data:{ _token: CSRF_TOKEN, id:blog_id, check_status:check_status},
+                data:{ _token: CSRF_TOKEN, id:id, check_status:check_status},
                 success:function(response)
                 {
                   swal("Success!", response.message, "success");

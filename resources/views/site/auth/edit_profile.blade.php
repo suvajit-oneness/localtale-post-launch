@@ -41,6 +41,12 @@
 	                </label>
 	                <input class="form-control" type="text" name="city" id="city" value="{{ Auth::user()->city }}"/>
 	            </div>
+                <div class="col-sm-6">
+	                <label class="mb-1">
+	                    <h6 class="mb-0 text-sm text-dark">ZipCode</h6>
+	                </label>
+	                <input class="form-control" type="text" name="pincode" id="pincode" value="{{ Auth::user()->pincode }}"/>
+	            </div>
 	            <div class="col-sm-12">
 	                <button type="submit" class="btn btn-blue text-center">Update</button>
 	            </div>

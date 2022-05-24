@@ -9,6 +9,7 @@ use App\Traits\UploadAble;
 use Illuminate\Http\UploadedFile;
 use App\Contracts\LoopContract;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
 
@@ -70,7 +71,8 @@ class LoopRepository extends BaseRepository implements LoopContract
 
             $loop = new Loop;
             $loop->content = $collection['content'];
-            $loop->user_id = $collection['user_id'];
+            $loop->user_id =Auth::user()->id;
+            $loop->pincode = Auth::user()->pincode;
             $loop->no_of_likes = 0;
             $loop->no_of_dislikes = 0;
             $loop->no_of_comments = 0;
@@ -95,6 +97,7 @@ class LoopRepository extends BaseRepository implements LoopContract
         $collection = collect($params)->except('_token');
 
         $loop->content = $collection['content'];
+       // $loop->pincode = $collection['pincode'];
 
         $loop->save();
 
@@ -226,12 +229,11 @@ class LoopRepository extends BaseRepository implements LoopContract
     /**
      * @return mixed
      */
-    public function getSearchBlog(string $term)
+    public function getSearchLoop(string $term)
     {
         return Loop::where([['content', 'LIKE', '%' . $term . '%']])
-        ->orWhere('blog_category_id', 'LIKE', '%' . $term . '%')
-        ->orWhere('meta_title', 'LIKE', '%' . $term . '%')
-        ->orWhere('meta_key', 'LIKE', '%' . $term . '%')
+        ->orWhere('pincode', 'LIKE', '%' . $term . '%')
+
         ->get();
     }
 

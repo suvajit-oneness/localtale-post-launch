@@ -94,13 +94,13 @@ class LoopController extends BaseController
         $data =  Loop::paginate(5);
         if (!empty($request->term)) {
             // dd($request->term);
-             $blogs = $this->loopRepository->getSearchBlog($request->term);
+             $blogs = $this->loopRepository->getSearchLoop($request->term);
 
             // dd($categories);
          } else {
-        $blogs = $this->loopRepository->listBlogs();
+        $blogs = $this->loopRepository->listLoops();
     }
-        $this->setPageTitle('Blog', 'List of all Blog');
+        $this->setPageTitle('Loop', 'List of all Loop');
         return view('site.post.index', compact('blogs','data'));
     }
 
@@ -110,12 +110,12 @@ class LoopController extends BaseController
     public function postcreate()
     {
         $this->setPageTitle('Blog', 'Create Blog');
-        $blogcat = $this->loopRepository->getBlogcategories();
-        $blogsubcat = $this->loopRepository->getBlogsubcategories();
+      // $blogcat = $this->loopRepository->getBlogcategories();
+        //$blogsubcat = $this->loopRepository->getBlogsubcategories();
        // $suburb = $this->blogRepository->getSuburb();
         $pin = $this->loopRepository->getPincode();
 
-        return view('site.post.create',compact('blogcat','blogsubcat','pin'));
+        return view('site.post.create',compact('pin'));
     }
 
     /**
@@ -130,12 +130,12 @@ class LoopController extends BaseController
 
         ]);
 
-        $blog = $this->loopRepository->createBlog($request->except('_token'));
+        $blog = $this->loopRepository->createLoop($request->except('_token'));
 
         if (!$blog) {
-            return $this->responseRedirectBack('Error occurred while creating Blog.', 'error', true, true);
+            return $this->responseRedirectBack('Error occurred while creating Loop.', 'error', true, true);
         }
-        return $this->responseRedirect('site.localloop.post', 'Blog has been created successfully' ,'success',false, false);
+        return $this->responseRedirect('site.localloop.post', 'Loop has been created successfully' ,'success',false, false);
     }
 
     /**
@@ -147,8 +147,8 @@ class LoopController extends BaseController
         $targetblog = $this->loopRepository->findLoopById($id);
 
         $pin = $this->loopRepository->getPincode();
-        $this->setPageTitle('Blog', 'Edit Blog : '.$targetblog->title);
-        return view('site.post.edit', compact('targetblog','blogcat','blogsubcat','pin'));
+        $this->setPageTitle('Loop', 'Edit Loop : '.$targetblog->title);
+        return view('site.post.edit', compact('targetblog','pin'));
     }
 
     /**
@@ -170,9 +170,9 @@ class LoopController extends BaseController
         $targetblog = $this->loopRepository->updateLoop($params);
 
         if (!$targetblog) {
-            return $this->responseRedirectBack('Error occurred while updating blog.', 'error', true, true);
+            return $this->responseRedirectBack('Error occurred while updating Loop.', 'error', true, true);
         }
-        return $this->responseRedirectBack('Blog has been updated successfully' ,'success',false, false);
+        return $this->responseRedirectBack('Loop has been updated successfully' ,'success',false, false);
     }
 
     /**
@@ -184,9 +184,9 @@ class LoopController extends BaseController
         $targetblog = $this->loopRepository->deleteLoop($id);
 
         if (!$targetblog) {
-            return $this->responseRedirectBack('Error occurred while deleting Blog.', 'error', true, true);
+            return $this->responseRedirectBack('Error occurred while deleting Loop.', 'error', true, true);
         }
-        return $this->responseRedirect('site.localloop.post', 'Blog has been deleted successfully' ,'success',false, false);
+        return $this->responseRedirect('site.localloop.post', 'Loop has been deleted successfully' ,'success',false, false);
     }
 
     /**
@@ -201,7 +201,7 @@ class LoopController extends BaseController
         $targetblog = $this->loopRepository->updateLoopStatus($params);
 
         if ($targetblog) {
-            return response()->json(array('message'=>'Blog status has been successfully updated'));
+            return response()->json(array('message'=>'Loop status has been successfully updated'));
         }
     }
 

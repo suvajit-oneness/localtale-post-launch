@@ -45,14 +45,14 @@ Route::group(['middleware' => ['auth:user']], function () {
 	    Route::get('site-save-user-directory/{id}','Site\BusinessController@saveUserBusiness');
 	    Route::get('site-delete-user-directory/{id}','Site\BusinessController@deleteUserBusiness');
 
-        Route::get('site-LocalLoop-post', 'Site\BlogController@post')->name('site.localloop.post');
-        Route::get('/site-LocalLoop-post/create', 'Site\BlogController@postcreate')->name('site.localloop.post.create');
-		Route::post('/site-LocalLoop-post/store', 'Site\BlogController@poststore')->name('site.localloop.post.store');
-		Route::get('/site-LocalLoop-post/{id}/edit', 'Site\BlogController@postedit')->name('site.localloop.post.edit');
-		Route::post('/site-LocalLoop-post/update', 'Site\BlogController@postupdate')->name('site.localloop.post.update');
-		Route::get('/site-LocalLoop-post/{id}/delete', 'Site\BlogController@postdelete')->name('site.localloop.post.delete');
-		Route::post('/site-LocalLoop-post/updateStatus', 'Site\BlogController@postupdateStatus')->name('site.localloop.post.updateStatus');
-		Route::get('/site-LocalLoop-post/{id}/details', 'Site\BlogController@postdetails')->name('site.localloop.post.details');
+        Route::get('site-LocalLoop-post', 'Site\LoopController@post')->name('site.localloop.post');
+        Route::get('/site-LocalLoop-post/create', 'Site\LoopController@postcreate')->name('site.localloop.post.create');
+		Route::post('/site-LocalLoop-post/store', 'Site\LoopController@poststore')->name('site.localloop.post.store');
+		Route::get('/site-LocalLoop-post/{id}/edit', 'Site\LoopController@postedit')->name('site.localloop.post.edit');
+		Route::post('/site-LocalLoop-post/update', 'Site\LoopController@postupdate')->name('site.localloop.post.update');
+		Route::get('/site-LocalLoop-post/{id}/delete', 'Site\LoopController@postdelete')->name('site.localloop.post.delete');
+		Route::post('site-LocalLoop-post/updateStatus', 'Site\LoopController@postupdateStatus')->name('site.localloop.post.updateStatus');
+		Route::get('/site-LocalLoop-post/{id}/details', 'Site\LoopController@postdetails')->name('site.localloop.post.details');
 	});
 
 Route::get('about-us','Site\ContentController@about');

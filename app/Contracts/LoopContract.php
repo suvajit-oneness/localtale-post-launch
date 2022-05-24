@@ -74,11 +74,15 @@ interface LoopContract
      * @return bool|mixed
      */
     public function deleteLoopComment($id);
-
+    public function updateLoopStatus(array $params);
     /**
      * @param $userId
      * @param $loopId
      * @return bool
      */
     public function likeLoop($userId,$loopId);
+
+
+    public function getSearchLoop(string $term);
+    public function getPincode();
 }
