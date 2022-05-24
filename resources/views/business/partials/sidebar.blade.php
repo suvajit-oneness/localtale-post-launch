@@ -2,7 +2,7 @@
 <div class="msb" id="msb">
     <nav class="navbar navbar-default" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
-      
+
 
       <!-- Main Menu -->
       <div class="side-menu-container">
@@ -35,14 +35,15 @@
 
       </div>
         <ul class="nav navbar-nav">
-          <li><a href="{{ route('business.event.create') }}"><i class="far fa-calendar-alt"></i>Upload Events</a></li>
-          <li><a href="{{ route('business.event.index') }}"><i class="far fa-calendar-alt"></i>Event List</a></li>
-          <li><a href="{{ route('business.deal.create') }}"><i class="fa fa-heart"></i> Upload deals</a></li>
-          <li><a href="{{ route('business.deal.index') }}"><i class="far fa-thumbs-up"></i>Deal list</a></li>
+            <li><a href="{{ route('business.event.create') }}"><i class="far fa-calendar-alt"></i>Upload Events</a></li>
+            <li><a href="{{ route('business.event.index') }}"><i class="far fa-calendar-alt"></i>Event List</a></li>
+            <li><a href="{{ route('business.deal.create') }}"><i class="fa fa-heart"></i>Upload deals</a></li>
+            <li><a href="{{ route('business.deal.index') }}"><i class="far fa-thumbs-up"></i>Deal list</a></li>
+            <li><a href="{{ route('business.advertisement.index') }}"><i class="far fa-thumbs-up"></i>Advertisement</a></li>
         </ul>
         <ul class="nav navbar-nav mt-auto">
-          <li><a href="{{ route('business.logout') }}" class="logout-bg"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
+            <li><a href="{{ route('business.logout') }}" class="logout-bg"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
-    </nav>  
+    </nav>
 </div>

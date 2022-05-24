@@ -9,7 +9,7 @@ Route::group(['prefix' => 'business'], function () {
 	      	return view('business.dashboard.index');
 	    })->name('business.dashboard');
 
-	    Route::group(['prefix'  =>   'event'], function() {
+	    Route::group(['prefix' => 'event'], function() {
 			Route::get('/', 'Business\EventController@index')->name('business.event.index');
 			Route::get('/create', 'Business\EventController@create')->name('business.event.create');
 			Route::post('/store', 'Business\EventController@store')->name('business.event.store');
@@ -19,7 +19,7 @@ Route::group(['prefix' => 'business'], function () {
 			Route::get('/{id}/details', 'Business\EventController@details')->name('business.event.details');
 		});
 
-		Route::group(['prefix'  =>   'deal'], function() {
+		Route::group(['prefix' => 'deal'], function() {
 			Route::get('/', 'Business\DealController@index')->name('business.deal.index');
 			Route::get('/create', 'Business\DealController@create')->name('business.deal.create');
 			Route::post('/store', 'Business\DealController@store')->name('business.deal.store');
@@ -27,6 +27,16 @@ Route::group(['prefix' => 'business'], function () {
 			Route::post('/update', 'Business\DealController@update')->name('business.deal.update');
 			Route::get('/{id}/delete', 'Business\DealController@delete')->name('business.deal.delete');
 			Route::get('/{id}/details', 'Business\DealController@details')->name('business.deal.details');
+		});
+
+		Route::group(['prefix' => 'advertisement'], function() {
+			Route::get('/', 'Business\AdvertisementController@index')->name('business.advertisement.index');
+			Route::get('/create', 'Business\AdvertisementController@create')->name('business.advertisement.create');
+			Route::post('/store', 'Business\AdvertisementController@store')->name('business.advertisement.store');
+			Route::get('/{id}/edit', 'Business\AdvertisementController@edit')->name('business.advertisement.edit');
+			Route::post('/update', 'Business\AdvertisementController@update')->name('business.advertisement.update');
+			Route::get('/{id}/delete', 'Business\AdvertisementController@delete')->name('business.advertisement.delete');
+			Route::get('/{id}/details', 'Business\AdvertisementController@details')->name('business.advertisement.details');
 		});
 	});
 });

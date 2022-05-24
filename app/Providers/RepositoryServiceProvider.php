@@ -35,6 +35,8 @@ use App\Contracts\EventformatContract;
 use App\Repositories\EventformatRepository;
 use App\Contracts\LanguageContract;
 use App\Repositories\LanguageRepository;
+use App\Contracts\AdvertisementContract;
+use App\Repositories\AdvertisementRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -43,9 +45,9 @@ class RepositoryServiceProvider extends ServiceProvider
         BannerContract::class           =>  BannerRepository::class,
         UserContract::class             =>  UserRepository::class,
         BusinessContract::class         =>  BusinessRepository::class,
-        StateContract::class         =>     StateRepository::class,
-        PincodeContract::class         =>   PincodeRepository::class,
-        SuburbContract::class         =>         SuburbRepository::class,
+        StateContract::class            =>  StateRepository::class,
+        PincodeContract::class          =>  PincodeRepository::class,
+        SuburbContract::class           =>  SuburbRepository::class,
         CategoryContract::class         =>  CategoryRepository::class,
         EventContract::class            =>  EventRepository::class,
         DealContract::class             =>  DealRepository::class,
@@ -55,6 +57,7 @@ class RepositoryServiceProvider extends ServiceProvider
         LoopContract::class             =>  LoopRepository::class,
         EventformatContract::class      =>  EventformatRepository::class,
         LanguageContract::class         =>  LanguageRepository::class,
+        AdvertisementContract::class    =>  AdvertisementRepository::class,
     ];
 
     /**
