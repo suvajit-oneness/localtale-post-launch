@@ -167,11 +167,22 @@ Route::group(['prefix' => 'admin'], function () {
 
 		});
 
-		Route::group(['prefix'  =>   'loop'], function() {
+		Route::group(['prefix' => 'loop'], function() {
 			Route::get('/', 'Admin\LoopController@index')->name('admin.loop.index');
 			Route::get('/{id}/delete', 'Admin\LoopController@delete')->name('admin.loop.delete');
 			Route::post('updateStatus', 'Admin\LoopController@updateStatus')->name('admin.loop.updateStatus');
 			Route::get('/{id}/details', 'Admin\LoopController@details')->name('admin.loop.details');
+		});
+
+        Route::group(['prefix' => 'localtrade/question'], function() {
+			Route::get('/', 'Admin\BlogController@index')->name('admin.localtrade.question.index');
+			Route::get('/create', 'Admin\BlogController@create')->name('admin.localtrade.question.create');
+			Route::post('/store', 'Admin\BlogController@store')->name('admin.localtrade.question.store');
+			Route::get('/{id}/edit', 'Admin\BlogController@edit')->name('admin.localtrade.question.edit');
+			Route::post('/update', 'Admin\BlogController@update')->name('admin.localtrade.question.update');
+			Route::get('/{id}/delete', 'Admin\BlogController@delete')->name('admin.localtrade.question.delete');
+			Route::post('updateStatus', 'Admin\BlogController@updateStatus')->name('admin.localtrade.question.updateStatus');
+			Route::get('/{id}/details', 'Admin\BlogController@details')->name('admin.localtrade.question.detail');
 		});
 
 	});

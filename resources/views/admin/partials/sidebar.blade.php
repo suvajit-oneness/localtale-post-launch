@@ -98,6 +98,12 @@
                 <span class="app-menu__label">Blog Management</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ sidebar_open(['admin.blog']) }}"
+                href="{{ route('admin.localtrade.question.index') }}"><i class="app-menu__icon fa fa-cogs"></i>
+                <span class="app-menu__label">Trade Questions</span>
+            </a>
+        </li>
         <li class="text-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <a href="#" class="app-menu__item @if(request()->is('admin/state*') || request()->is('admin/pin*') || request()->is('admin/suburb*')) {{ 'active' }} @endif">
                 <span class="app-menu__label">MarketPlace</span>
@@ -121,8 +127,6 @@
                 </a>
             </li>
             <!--- Suburb management --->
-
-
         </div>
         <li>
             <a class="app-menu__item {{ sidebar_open(['admin.settings']) }}"
