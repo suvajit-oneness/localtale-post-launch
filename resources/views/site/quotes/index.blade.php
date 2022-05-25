@@ -39,7 +39,7 @@
             <div class="modal-body">
                 <form action="{{ route('get-quotes.submit') }}" method="POST">
                     @php
-                        $trade_questions = \Illuminate\Support\Facades\DB::table('local_trade_questions')->orderBy('position', 'asc')->get();
+                        $trade_questions = \Illuminate\Support\Facades\DB::table('local_trade_questions')->where('status', 1)->orderBy('position', 'asc')->get();
                     @endphp
 
                     @foreach ($trade_questions as $questionKey => $questionValue)
@@ -70,8 +70,8 @@
                                         @endphp
                                         @foreach ($valArr as $itemKey => $itemVal)
                                         <div class="questionSetItem_box_options_radio">
-                                            <input class="form-check-input" type="radio" name="{{$questionValue->name}}" value="{{$itemVal}}" id="flexRadioDefault{{$itemKey}}" {{ ($itemKey == 0) ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="flexRadioDefault{{$itemKey}}">
+                                            <input class="form-check-input" type="radio" name="{{$questionValue->name}}" value="{{$itemVal}}" id="flexRadioDefault{{$questionValue->name.$itemKey}}" {{ ($itemKey == 0) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexRadioDefault{{$questionValue->name.$itemKey}}">
                                                 {{$itemVal}}
                                             </label>
                                         </div>

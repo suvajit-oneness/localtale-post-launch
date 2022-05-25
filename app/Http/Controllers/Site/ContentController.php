@@ -64,22 +64,27 @@ class ContentController extends BaseController
     public function submitQuotes(Request $request)
     {
         // dd($request->all());
-        $business_cat_id = DB::table('business_categories')->select('id')->where('title', 'LIKE', '%'.$request->category.'%')->first();
-        $resp = DB::table('businesses')->where('address', 'LIKE', '%'.$request->postcode.'%')->where('category_id', 'LIKE', '%'.$business_cat_id->id.'%')->get();
-        // dd($business_cat_id->id, $resp);
+        try {
+            $business_cat_id = DB::table('business_categories')->select('id')->where('title', 'LIKE', '%'.$request->category.'%')->first();
+            $resp = DB::table('businesses')->where('address', 'LIKE', '%'.$request->postcode.'%')->where('category_id', 'LIKE', '%'.$business_cat_id->id.'%')->get();
+            // dd($business_cat_id->id, $resp);
 
-        $queryRFQ = new LocalTradeQueryRequest();
-        $queryRFQ->ip = $_SERVER['REMOTE_ADDR'];
-        if (Auth::user()) {
-            $queryRFQ->user_id = Auth::user()->id;
+            $queryRFQ = new LocalTradeQueryRequest();
+            $queryRFQ->ip = $_SERVER['REMOTE_ADDR'];
+            if (Auth::user()) {
+                $queryRFQ->user_id = Auth::user()->id;
+            }
+            $queryRFQ->postcode = $request->postcode;
+            $queryRFQ->time_frame = $request->time_frame;
+            $queryRFQ->job_details = $request->job_details ?? null;
+            $queryRFQ->budget = $request->budget;
+            $queryRFQ->category = $request->category;
+            $queryRFQ->total_payload = json_encode($request->all());
+            $queryRFQ->save();
+
+            return view('site.quotes.result', compact('resp', 'queryRFQ'));
+        } catch (\Throwable $th) {
+            throw $th;
         }
-        $queryRFQ->postcode = $request->postcode;
-        $queryRFQ->time_frame = $request->time_frame;
-        $queryRFQ->job_details = $request->job_details ?? null;
-        $queryRFQ->budget = $request->budget;
-        $queryRFQ->category = $request->category;
-        $queryRFQ->save();
-
-        return view('site.quotes.result', compact('resp', 'queryRFQ'));
     }
 }

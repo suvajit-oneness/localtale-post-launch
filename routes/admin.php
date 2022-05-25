@@ -184,7 +184,6 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('/create', 'Admin\NotificationController@create')->name('admin.notification.create');
 			Route::post('/store', 'Admin\NotificationController@store')->name('admin.notification.store');
 			Route::get('/{id}/delete', 'Admin\NotificationController@delete')->name('admin.notification.delete');
-
 		});
 
 		Route::group(['prefix' => 'loop'], function() {
@@ -195,14 +194,14 @@ Route::group(['prefix' => 'admin'], function () {
 		});
 
         Route::group(['prefix' => 'localtrade/question'], function() {
-			Route::get('/', 'Admin\BlogController@index')->name('admin.localtrade.question.index');
-			Route::get('/create', 'Admin\BlogController@create')->name('admin.localtrade.question.create');
-			Route::post('/store', 'Admin\BlogController@store')->name('admin.localtrade.question.store');
-			Route::get('/{id}/edit', 'Admin\BlogController@edit')->name('admin.localtrade.question.edit');
-			Route::post('/update', 'Admin\BlogController@update')->name('admin.localtrade.question.update');
-			Route::get('/{id}/delete', 'Admin\BlogController@delete')->name('admin.localtrade.question.delete');
-			Route::post('updateStatus', 'Admin\BlogController@updateStatus')->name('admin.localtrade.question.updateStatus');
-			Route::get('/{id}/details', 'Admin\BlogController@details')->name('admin.localtrade.question.detail');
+			Route::get('/', 'Admin\LocalTradeQuestionController@index')->name('admin.localtrade.question.index');
+			Route::get('/create', 'Admin\LocalTradeQuestionController@create')->name('admin.localtrade.question.create');
+			Route::post('/store', 'Admin\LocalTradeQuestionController@store')->name('admin.localtrade.question.store');
+			Route::get('/{id}/edit', 'Admin\LocalTradeQuestionController@edit')->name('admin.localtrade.question.edit');
+			Route::post('/update', 'Admin\LocalTradeQuestionController@update')->name('admin.localtrade.question.update');
+			Route::get('/{id}/delete', 'Admin\LocalTradeQuestionController@delete')->name('admin.localtrade.question.delete');
+			Route::post('updateStatus', 'Admin\LocalTradeQuestionController@updateStatus')->name('admin.localtrade.question.updateStatus');
+			Route::get('/{id}/details', 'Admin\LocalTradeQuestionController@details')->name('admin.localtrade.question.detail');
 		});
 
 	});

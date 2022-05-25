@@ -3,47 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Contracts\BlogContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use App\Models\LocalTradeQuestions;
 
-class BlogController extends BaseController
+class LocalTradeQuestionController extends BaseController
 {
-    /**
-     * @var BlogContract
-     */
-    protected $blogRepository;
-
-
-    /**
-     * PageController constructor.
-     * @param BlogContract $blogRepository
-     */
-    public function __construct(BlogContract $blogRepository)
-    {
-        $this->blogRepository = $blogRepository;
-
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-
     public function index()
     {
-        $blogs = $this->blogRepository->listBlogs();
-
-        $this->setPageTitle('Blog', 'List of all blogs');
-        return view('admin.blog.index', compact('blogs'));
+        $data = LocalTradeQuestions::orderBy('position', 'asc')->get();
+        $this->setPageTitle('Questions', 'List of all Questions');
+        return view('admin.trade-question.index', compact('data'));
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function create()
     {
-        $this->setPageTitle('Blog', 'Create Blog');
-        return view('admin.blog.create');
+        $this->setPageTitle('Question', 'Create new Question');
+        return view('admin.trade-question.create');
     }
 
     /**
@@ -53,20 +29,31 @@ class BlogController extends BaseController
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
-            'title'      =>  'required|max:191',
-            'image'     =>  'required|mimes:jpg,jpeg,png|max:1000',
-            'description'     =>  'required',
+            'question' => 'required',
+            'type' => 'required',
+            'name' => 'required',
+            'answer' => 'nullable',
         ]);
 
-        $params = $request->except('_token');
+        $LocalTradeQuestionsCount = LocalTradeQuestions::count();
 
-        $blog = $this->blogRepository->createBlog($params);
+        $question = new LocalTradeQuestions();
+        $question->question = $request->question;
+        $question->type = $request->type;
+        $question->name = $request->name;
+        $question->answer = $request->answer ?? '';
+        $question->position = $LocalTradeQuestionsCount + 1;
+        $question->save();
 
-        if (!$blog) {
-            return $this->responseRedirectBack('Error occurred while creating blog.', 'error', true, true);
+        // $params = $request->except('_token');
+        // $blog = $this->blogRepository->createBlog($params);
+
+        if (!$question) {
+            return $this->responseRedirectBack('Error occurred while creating question.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.blog.index', 'Blog has been added successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.localtrade.question.index', 'Question has been added successfully' ,'success',false, false);
     }
 
     /**
@@ -75,10 +62,9 @@ class BlogController extends BaseController
      */
     public function edit($id)
     {
-        $targetBlog = $this->blogRepository->findBlogById($id);
-
-        $this->setPageTitle('Blog', 'Edit Blog : '.$targetBlog->title);
-        return view('admin.blog.edit', compact('targetBlog'));
+        $data = LocalTradeQuestions::findOrFail($id);
+        $this->setPageTitle('Question', 'Edit Question : '.$data->question);
+        return view('admin.trade-question.edit', compact('data'));
     }
 
     /**
@@ -89,19 +75,24 @@ class BlogController extends BaseController
     public function update(Request $request)
     {
         $this->validate($request, [
-            'title'      =>  'required|max:191',
-            'image'     =>  'mimes:jpg,jpeg,png|max:1000',
-            'description'     =>  'required',
+            'id' => 'required',
+            'question' => 'required',
+            'type' => 'required',
+            'name' => 'required',
+            'answer' => 'nullable',
         ]);
 
-        $params = $request->except('_token');
+        $question = LocalTradeQuestions::findOrFail($request->id);
+        $question->question = $request->question;
+        $question->type = $request->type;
+        $question->name = $request->name;
+        $question->answer = $request->answer ?? '';
+        $question->update();
 
-        $blog = $this->blogRepository->updateBlog($params);
-
-        if (!$blog) {
-            return $this->responseRedirectBack('Error occurred while updating blog.', 'error', true, true);
+        if (!$question) {
+            return $this->responseRedirectBack('Error occurred while updating Question.', 'error', true, true);
         }
-        return $this->responseRedirectBack('Blog has been updated successfully' ,'success',false, false);
+        return $this->responseRedirectBack('Question has been updated successfully' ,'success', false, false);
     }
 
     /**
@@ -110,12 +101,12 @@ class BlogController extends BaseController
      */
     public function delete($id)
     {
-        $blog = $this->blogRepository->deleteBlog($id);
+        $question = LocalTradeQuestions::destroy($id);
 
-        if (!$blog) {
+        if (!$question) {
             return $this->responseRedirectBack('Error occurred while deleting blog.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.blog.index', 'Blog has been deleted successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.localtrade.question.index', 'Blog has been deleted successfully' ,'success',false, false);
     }
 
     /**
@@ -124,12 +115,11 @@ class BlogController extends BaseController
      * @throws \Illuminate\Validation\ValidationException
      */
     public function updateStatus(Request $request){
+        $question = LocalTradeQuestions::findOrFail($request->id);
+        $question->status = $request->check_status;
+        $question->update();
 
-        $params = $request->except('_token');
-
-        $blog = $this->blogRepository->updateBlogStatus($params);
-
-        if ($blog) {
+        if ($question) {
             return response()->json(array('message'=>'Blog status has been successfully updated'));
         }
     }
@@ -144,6 +134,6 @@ class BlogController extends BaseController
         $blog = $blogs[0];
 
         $this->setPageTitle('Blog', 'Blog Details : '.$blog->title);
-        return view('admin.blog.details', compact('blog'));
+        return view('admin.trade-question.details', compact('blog'));
     }
 }
