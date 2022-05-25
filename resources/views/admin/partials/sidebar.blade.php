@@ -104,29 +104,27 @@
                 <span class="app-menu__label">Trade Questions</span>
             </a>
         </li>
-        <li class="text-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <a href="#" class="app-menu__item @if(request()->is('admin/state*') || request()->is('admin/pin*') || request()->is('admin/suburb*')) {{ 'active' }} @endif">
+
+        <li class="text-light" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            <a href="#" class="app-menu__item @if(request()->is('admin/market-cat*') || request()->is('admin/market-subcat*')) {{ 'active' }} @endif">
                 <span class="app-menu__label">MarketPlace</span>
                 <i class="app-menu__icon fa fa-chevron-down"></i>
             </a>
         </li>
-        <div id="collapseOne" class="collapse @if(request()->is('admin/market-cat*') || request()->is('admin/market-subcat*') || request()->is('admin/suburb*')) {{ 'show' }} @endif" aria-labelledby="headingOne" data-parent="#accordion">
-            <!---State management-->
+        <div id="collapseThree" class="collapse @if(request()->is('admin/market-cat*') || request()->is('admin/market-cat*')) {{ 'show' }} @endif" aria-labelledby="headingOne" data-parent="#accordion">
             <li>
                 <a class="app-menu__item {{ request()->is('admin/market-cat*') ? 'active' : '' }} {{ sidebar_open(['admin.market-cat']) }}"
-                    href="{{ route('admin.market-cat.index') }}">
-                    <i class="app-menu__icon fa fa-flag"></i>
-                    <span class="app-menu__label">Category management</span>
-                </a>
+                href="{{ route('admin.market-cat.index') }}"><i class="app-menu__icon fa fa-folder"></i>
+            <span class="app-menu__label">Category management</span>
+            </a>
             </li>
-            <!---Pin code management-->
+            <!---  Directory  management ---->
             <li>
                 <a class="app-menu__item {{ request()->is('admin/market-subcat*') ? 'active' : '' }} {{ sidebar_open(['admin.market-subcat']) }}"
-                    href="{{ route('admin.market-subcat.index') }}"><i class="app-menu__icon fa fa-map-pin"></i>
-                    <span class="app-menu__label">SubCategory management</span>
+                    href="{{ route('admin.market-subcat.index') }}"><i class="app-menu__icon fa fa-folder"></i>
+                    <span class="app-menu__label">Subcategory management</span>
                 </a>
             </li>
-            <!--- Suburb management --->
         </div>
         <li>
             <a class="app-menu__item {{ sidebar_open(['admin.settings']) }}"

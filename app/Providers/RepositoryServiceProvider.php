@@ -37,6 +37,14 @@ use App\Contracts\LanguageContract;
 use App\Repositories\LanguageRepository;
 use App\Contracts\AdvertisementContract;
 use App\Repositories\AdvertisementRepository;
+use App\Contracts\MarketCategoryContract;
+use App\Repositories\MarketCategoryRepository;
+use App\Contracts\MarketSubCategoryContract;
+use App\Repositories\MarketSubCategoryRepository;
+use App\Contracts\MarketProductContract;
+use App\Repositories\MarketProductRepository;
+use App\Contracts\MarketOrderContract;
+use App\Repositories\MarketOrderRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -58,6 +66,11 @@ class RepositoryServiceProvider extends ServiceProvider
         EventformatContract::class      =>  EventformatRepository::class,
         LanguageContract::class         =>  LanguageRepository::class,
         AdvertisementContract::class    =>  AdvertisementRepository::class,
+        MarketCategoryContract::class    =>  MarketCategoryRepository::class,
+        MarketSubCategoryContract::class    =>  MarketSubCategoryRepository::class,
+        MarketProductContract::class    =>  MarketProductRepository::class,
+        MarketOrderContract::class    =>  MarketOrderRepository::class,
+
     ];
 
     /**

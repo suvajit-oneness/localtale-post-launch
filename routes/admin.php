@@ -159,24 +159,24 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('/{id}/details', 'Admin\BlogController@details')->name('admin.blog.details');
 		});
         Route::group(['prefix'  =>   'admin/market-cat'], function() {
-			Route::get('/', 'Admin\MarketController@index')->name('admin.market-cat.index');
-			Route::get('/create', 'Admin\MarketController@create')->name('admin.market-cat.create');
-			Route::post('/store', 'Admin\MarketController@store')->name('admin.market-cat.store');
-			Route::get('/{id}/edit', 'Admin\MarketController@edit')->name('admin.market-cat.edit');
-			Route::post('/update', 'Admin\MarketController@update')->name('admin.market-cat.update');
-			Route::get('/{id}/delete', 'Admin\MarketController@delete')->name('admin.market-cat.delete');
-			Route::post('updateStatus', 'Admin\MarketController@updateStatus')->name('admin.market-cat.updateStatus');
-			Route::get('/{id}/details', 'Admin\MarketController@details')->name('admin.market-cat.details');
+			Route::get('/', 'Admin\MarketCategoryController@index')->name('admin.market-cat.index');
+			Route::get('/create', 'Admin\MarketCategoryController@create')->name('admin.market-cat.create');
+			Route::post('/store', 'Admin\MarketCategoryController@store')->name('admin.market-cat.store');
+			Route::get('/{id}/edit', 'Admin\MarketCategoryController@edit')->name('admin.market-cat.edit');
+			Route::post('/update', 'Admin\MarketCategoryController@update')->name('admin.market-cat.update');
+			Route::get('/{id}/delete', 'Admin\MarketCategoryController@delete')->name('admin.market-cat.delete');
+			Route::post('updateStatus', 'Admin\MarketCategoryController@updateStatus')->name('admin.market-cat.updateStatus');
+			Route::get('/{id}/details', 'Admin\MarketCategoryController@details')->name('admin.market-cat.details');
 		});
         Route::group(['prefix'  =>   'admin/market-subcat'], function() {
-			Route::get('/', 'Admin\MarketController@index')->name('admin.market-subcat.index');
-			Route::get('/create', 'Admin\MarketController@create')->name('admin.market-subcat.create');
-			Route::post('/store', 'Admin\MarketController@store')->name('admin.market-subcat.store');
-			Route::get('/{id}/edit', 'Admin\MarketController@edit')->name('admin.market-subcat.edit');
-			Route::post('/update', 'Admin\MarketController@update')->name('admin.market-subcat.update');
-			Route::get('/{id}/delete', 'Admin\MarketController@delete')->name('admin.market-subcat.delete');
-			Route::post('updateStatus', 'Admin\MarketController@updateStatus')->name('admin.market-subcat.updateStatus');
-			Route::get('/{id}/details', 'Admin\MarketController@details')->name('admin.market-subcat.details');
+			Route::get('/', 'Admin\MarketSubCategoryController@index')->name('admin.market-subcat.index');
+			Route::get('/create', 'Admin\MarketSubCategoryController@create')->name('admin.market-subcat.create');
+			Route::post('/store', 'Admin\MarketSubCategoryController@store')->name('admin.market-subcat.store');
+			Route::get('/{id}/edit', 'Admin\MarketSubCategoryController@edit')->name('admin.market-subcat.edit');
+			Route::post('/update', 'Admin\MarketSubCategoryController@update')->name('admin.market-subcat.update');
+			Route::get('/{id}/delete', 'Admin\MarketSubCategoryController@delete')->name('admin.market-subcat.delete');
+			Route::post('updateStatus', 'Admin\MarketSubCategoryController@updateStatus')->name('admin.market-subcat.updateStatus');
+			Route::get('/{id}/details', 'Admin\MarketSubCategoryController@details')->name('admin.market-subcat.details');
 		});
 
 		Route::group(['prefix'  =>   'notification'], function() {
