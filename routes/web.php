@@ -18,6 +18,12 @@ Route::get('command', function () {
     dd("Done");
 });
 
+Route::get('/login', function () {
+    return view('login');})->name('login');
+
+// Route::post('login', 'Site\LoginController@showLoginForm')->name('login');
+// Route::post('login', [ 'as' => 'login', 'uses' => 'Site\LoginController@showLoginForm']);
+
 require 'admin.php';
 require 'business.php';
 require 'site.php';
@@ -36,7 +42,7 @@ require 'api.php';
 //     Route::get('post-ads','Site\AdsController@craeteAds')->name('user.post.ad');
 //     Route::post('getCategoryFields', 'Site\AdsController@getCategoryFields')->name('user.customform.getCategoryFields');
 //     Route::post('ad-submit','Site\AdsController@storeAds')->name('adsubmit');
-    
+
 //     Route::post('getCategoryFieldValues', 'Site\AdsController@getCategoryFieldValues')->name('ads.customform.getValues');
 //     Route::post('getRateValues', 'Site\AdsController@getRateValues')->name('ads.customform.getRateValues');
 //     Route::get('edit-ads/{id}','Site\AdsController@editAds');
@@ -45,7 +51,7 @@ require 'api.php';
 //     Route::post('storereportabuse','Site\AdsController@storeReportAbuse')->name('storereportabuse');
 //     Route::get('update-free-package/{ad_id}/{id}','Site\PaymentController@updateFreePackage');
 // });
-    
+
 //     // Route::get('/',function(){
 //     //     return redirect('/login');
 //     // });

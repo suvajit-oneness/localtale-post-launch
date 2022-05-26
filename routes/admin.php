@@ -178,6 +178,26 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::post('updateStatus', 'Admin\MarketSubCategoryController@updateStatus')->name('admin.market-subcat.updateStatus');
 			Route::get('/{id}/details', 'Admin\MarketSubCategoryController@details')->name('admin.market-subcat.details');
 		});
+        // Route::group(['prefix'  =>   'admin/market-cat'], function() {
+		// 	Route::get('/', 'Admin\MarketController@index')->name('admin.market-cat.index');
+		// 	Route::get('/create', 'Admin\MarketController@create')->name('admin.market-cat.create');
+		// 	Route::post('/store', 'Admin\MarketController@store')->name('admin.market-cat.store');
+		// 	Route::get('/{id}/edit', 'Admin\MarketController@edit')->name('admin.market-cat.edit');
+		// 	Route::post('/update', 'Admin\MarketController@update')->name('admin.market-cat.update');
+		// 	Route::get('/{id}/delete', 'Admin\MarketController@delete')->name('admin.market-cat.delete');
+		// 	Route::post('updateStatus', 'Admin\MarketController@updateStatus')->name('admin.market-cat.updateStatus');
+		// 	Route::get('/{id}/details', 'Admin\MarketController@details')->name('admin.market-cat.details');
+		// });
+        // Route::group(['prefix'  =>   'admin/market-subcat'], function() {
+		// 	Route::get('/', 'Admin\MarketController@index')->name('admin.market-subcat.index');
+		// 	Route::get('/create', 'Admin\MarketController@create')->name('admin.market-subcat.create');
+		// 	Route::post('/store', 'Admin\MarketController@store')->name('admin.market-subcat.store');
+		// 	Route::get('/{id}/edit', 'Admin\MarketController@edit')->name('admin.market-subcat.edit');
+		// 	Route::post('/update', 'Admin\MarketController@update')->name('admin.market-subcat.update');
+		// 	Route::get('/{id}/delete', 'Admin\MarketController@delete')->name('admin.market-subcat.delete');
+		// 	Route::post('updateStatus', 'Admin\MarketController@updateStatus')->name('admin.market-subcat.updateStatus');
+		// 	Route::get('/{id}/details', 'Admin\MarketController@details')->name('admin.market-subcat.details');
+		// });
 
 		Route::group(['prefix'  =>   'notification'], function() {
 			Route::get('/', 'Admin\NotificationController@index')->name('admin.notification.index');
